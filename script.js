@@ -125,18 +125,19 @@
   }));
 
   // 導覽列高亮，並在手機上把目前項目捲入可視範圍
+  const nav = $("#nav");
   const navLinks = $$("#nav a");
   const spy = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     navLinks.forEach(a => {
       const on = a.getAttribute("href") === "#" + e.target.id;
       a.classList.toggle("on", on);
-      if (on) a.scrollIntoView({ block: "nearest", inline: "nearest" });
+      // 只橫向捲動導覽列本身；scrollIntoView 會連帶捲動整個頁面，造成無法往下捲
+      if (on && nav.scrollWidth > nav.clientWidth) nav.scrollTo({ left: a.offsetLeft - nav.clientWidth / 2 + a.offsetWidth / 2 });
     });
   }), { rootMargin: "-45% 0px -50% 0px" });
   $$("main section[id]").forEach(s => spy.observe(s));
 
-  const nav = $("#nav");
   const syncNavFade = () => nav.classList.toggle("at-end", nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 4);
   nav.addEventListener("scroll", syncNavFade, { passive: true });
   addEventListener("resize", syncNavFade);
