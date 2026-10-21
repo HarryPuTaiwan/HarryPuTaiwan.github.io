@@ -1,0 +1,6 @@
+# 不公開的檔案
+.claude/
+portfolio/
+*.zip
+Resume_*.pdf
+.DS_Store

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>蒲冠吉 Guan-Ji Pu｜資料分析 · 資料工程 · AI 應用</title>
+<meta name="description" content="蒲冠吉 Guan-Ji Pu 個人履歷：7 年以上資料分析、資料工程與機器學習經驗。">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="#top" class="brand">蒲冠吉 <span>Guan-Ji Pu</span></a>
+    <nav class="nav" id="nav">
+      <a href="#about">簡介</a>
+      <a href="#skills">技能</a>
+      <a href="#experience">經歷</a>
+      <a href="#portfolio">作品集</a>
+      <a href="#education">學歷證照</a>
+      <a href="#contact">聯絡</a>
+    </nav>
+    <div class="tools">
+      <button class="ghost" id="langBtn" aria-label="切換語言">中 / EN</button>
+      <button class="ghost" onclick="window.print()" aria-label="列印或另存 PDF">列印</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap" id="about">
+    <p class="eyebrow">資料分析 · 資料工程 · 機器學習 · AI 應用</p>
+    <h1>蒲冠吉 <small>Guan-Ji Pu</small></h1>
+    <p class="lead" id="lead"></p>
+    <ul class="highlights" id="highlights"></ul>
+    <div class="status"><span class="dot"></span><span id="status"></span></div>
+    <div class="kpis" id="kpis"></div>
+  </section>
+
+  <section class="wrap section" id="skills">
+    <div class="section-head">
+      <h2>專業技能</h2>
+      <p class="hint">點選技能，下方經歷會標示出實際使用該技能的工作</p>
+    </div>
+    <div id="skillGroups"></div>
+    <div class="filter-bar" id="filterBar" hidden>
+      篩選中：<strong id="filterName"></strong>
+      <span id="filterCount"></span>
+      <button class="ghost" id="clearFilter">清除篩選</button>
+    </div>
+  </section>
+
+  <section class="wrap section" id="experience">
+    <div class="section-head">
+      <h2>工作經歷</h2>
+      <button class="ghost" id="expandAll">全部展開</button>
+    </div>
+    <p class="hint">點擊各段經歷，可展開工作細節與成果</p>
+    <ol class="timeline" id="timeline"></ol>
+  </section>
+
+  <section class="wrap section" id="portfolio">
+    <div class="section-head">
+      <h2>作品集</h2>
+      <div class="tabs" id="pfTabs"></div>
+    </div>
+    <div class="cards" id="pfCards"></div>
+  </section>
+
+  <section class="wrap section" id="education">
+    <div class="section-head"><h2>學歷 · 證照 · 語言</h2></div>
+    <div class="grid3">
+      <div class="panel"><h3>學歷</h3><div id="edu"></div></div>
+      <div class="panel"><h3>證照</h3><div id="certs"></div></div>
+      <div class="panel"><h3>語言</h3><div id="langs"></div></div>
+    </div>
+  </section>
+
+  <section class="wrap section contact" id="contact">
+    <h2>聯絡我</h2>
+    <p>歡迎透過 Email 或 LinkedIn 與我聯繫。</p>
+    <div class="contact-links">
+      <a class="btn primary" href="mailto:pontussecret@gmail.com">pontussecret@gmail.com</a>
+      <button class="btn" id="copyEmail">複製 Email</button>
+      <a class="btn" href="https://www.linkedin.com/in/guan-ji-pu" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap footer">© 2026 Guan-Ji Pu</footer>
+<div class="toast" id="toast" role="status"></div>
+<script src="data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
