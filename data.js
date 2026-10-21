@@ -6,7 +6,7 @@ window.RESUME = {
     ["AI 工具實務應用", "運用 AI Agent 與 MCP 加速知識檢索、報告產出與程式開發"],
     ["商業與 IT 的橋樑", "需求訪談、利害關係人溝通，參與 50+ 人跨部門大型系統轉換專案"]
   ],
-  status: "目前正在進修 AI 課程（<a href=\"https://ai-talent.tw/\" target=\"_blank\" rel=\"noopener\">ai-talent.tw</a>），AI 應用／BI 相關職缺洽談",
+  status: "目前正在進修 AI 課程（<a href=\"https://ai-talent.tw/\" target=\"_blank\" rel=\"noopener\">ai-talent.tw</a>），開放 AI 應用／BI 相關職缺洽談",
   kpis: [
     { value: 7, suffix: "+ 年", label: "資料相關工作經驗" },
     { value: 100, prefix: "USD ", suffix: "K", label: "詐欺偵測單季減少損失" },
@@ -22,7 +22,7 @@ window.RESUME = {
   ],
   jobs: [
     {
-      id: "coupang",
+      id: "coupang", industry: "電商",
       title: "Senior Data Analyst",
       company: "Coupang",
       period: "2026.01 – 2026.08",
@@ -38,7 +38,7 @@ window.RESUME = {
       tags: ["SQL", "Python", "Power BI", "Chrome Extension", "AI Agent", "MCP", "Claude Code / Windsurf", "ETL/ELT"]
     },
     {
-      id: "tookitaki",
+      id: "tookitaki", industry: "AML 合規 SaaS",
       title: "Data Scientist",
       company: "Tookitaki",
       period: "2025.07 – 2026.01",
@@ -53,7 +53,7 @@ window.RESUME = {
       tags: ["Python", "SQL", "Spark", "Hadoop / Kafka", "AI Agent", "統計檢定", "需求訪談", "利害關係人管理"]
     },
     {
-      id: "opennet",
+      id: "opennet", industry: "線上娛樂平台",
       title: "Data Analytics Engineer",
       company: "Opennet",
       period: "2024.03 – 2025.07",
@@ -68,7 +68,7 @@ window.RESUME = {
       tags: ["Airflow", "AWS Redshift/RDS", "ETL/ELT", "SQL 優化", "Python", "SQL", "Metabase", "詐欺偵測"]
     },
     {
-      id: "esun-ba",
+      id: "esun-ba", industry: "銀行",
       title: "Business Analyst",
       company: "玉山銀行 E.SUN Commercial Bank",
       period: "2021.11 – 2024.03",
@@ -85,7 +85,7 @@ window.RESUME = {
       tags: ["需求訪談", "利害關係人管理", "JavaScript / D3.js", "RPA", "Python", "Tableau", "SQL", "Scrum"]
     },
     {
-      id: "esun-ds",
+      id: "esun-ds", industry: "銀行",
       title: "Data Scientist",
       company: "玉山銀行 E.SUN Commercial Bank",
       period: "2019.07 – 2021.11",

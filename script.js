@@ -3,59 +3,69 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   // Hero
   $("#lead").textContent = R.lead;
   $("#status").innerHTML = R.status;
   $("#highlights").innerHTML = R.highlights.map(([t, d]) => `<li><strong>${esc(t)}</strong><span>${esc(d)}</span></li>`).join("");
-  $("#kpis").innerHTML = R.kpis.map(k => `
-    <div class="kpi"><div class="kpi-num" data-v="${k.value}" data-d="${k.decimals || 0}" data-p="${esc(k.prefix || "")}" data-s="${esc(k.suffix || "")}">${esc(k.prefix || "")}0${esc(k.suffix || "")}</div>
+  const fmt = (k, v) => (k.prefix || "") + v.toFixed(k.decimals || 0) + (k.suffix || "");
+  $("#kpis").innerHTML = R.kpis.map((k, i) => `
+    <div class="kpi"><div class="kpi-num" data-i="${i}">${esc(fmt(k, k.value))}</div>
     <div class="kpi-label">${esc(k.label)}</div></div>`).join("");
 
-  // 數字動畫
-  const countUp = el => {
-    const v = +el.dataset.v, d = +el.dataset.d, t0 = performance.now(), dur = 1100;
-    const step = now => {
-      const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
-      el.textContent = el.dataset.p + (v * e).toFixed(d) + el.dataset.s;
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
+  // 數字動畫：預設即顯示最終值，僅在允許動畫時從 0 跑到最終值
+  if (!reduceMotion) {
+    $$(".kpi-num").forEach(el => {
+      const k = R.kpis[el.dataset.i], t0 = performance.now(), dur = 1100;
+      const step = now => {
+        const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(k, k.value * e);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }
 
   // Skills
   const usage = {};
   R.jobs.forEach(j => j.tags.forEach(t => (usage[t] = (usage[t] || 0) + 1)));
   $("#skillGroups").innerHTML = R.skillGroups.map(g => `
     <div class="skill-group"><h3>${esc(g.name)}</h3><div class="chips">
-      ${g.skills.map(s => `<button class="chip${usage[s] ? "" : " muted"}" data-skill="${esc(s)}">${esc(s)}${usage[s] ? `<em>${usage[s]}</em>` : ""}</button>`).join("")}
+      ${g.skills.map(s => usage[s]
+        ? `<button class="chip" data-skill="${esc(s)}" aria-pressed="false">${esc(s)}<em aria-label="${usage[s]} 段經歷">${usage[s]}</em></button>`
+        : `<span class="chip static">${esc(s)}</span>`).join("")}
     </div></div>`).join("");
 
   // Timeline
   $("#timeline").innerHTML = R.jobs.map(j => `
     <li class="job" id="job-${j.id}" data-tags="${esc(j.tags.join("|"))}">
-      <button class="job-head" aria-expanded="false">
-        <div class="job-main">
-          <span class="job-period">${esc(j.period)}</span>
-          <h3>${esc(j.title)} <span class="at">@ ${esc(j.company)}</span></h3>
-          <p class="job-sum">${esc(j.summary)}</p>
+      <div class="job-head">
+        <div class="job-meta"><span class="job-period">${esc(j.period)}</span><span class="industry">${esc(j.industry)}</span></div>
+        <h3><button class="job-toggle" aria-expanded="false" aria-controls="body-${j.id}">${esc(j.title)} <span class="at">@ ${esc(j.company)}</span></button></h3>
+        <p class="job-sum">${esc(j.summary)}</p>
+        <div class="job-foot">
           <div class="results">${j.results.map(r => `<span>${esc(r)}</span>`).join("")}</div>
+          <span class="more" data-n="${j.details.length}">展開 ${j.details.length} 項細節</span>
         </div>
         <span class="chev" aria-hidden="true"></span>
-      </button>
-      <div class="job-body"><div class="job-inner">
+      </div>
+      <div class="job-body" id="body-${j.id}"><div class="job-inner">
         <p class="job-intro">${esc(j.intro)}</p>
         <div class="details">${j.details.map(d => `<div class="detail"><h4>${esc(d.h)}</h4><p>${esc(d.p)}</p></div>`).join("")}</div>
-        <div class="tags">${j.tags.map(t => `<span class="tag" data-skill="${esc(t)}">${esc(t)}</span>`).join("")}</div>
+        <div class="tags">${j.tags.map(t => `<button class="tag" data-skill="${esc(t)}">${esc(t)}</button>`).join("")}</div>
       </div></div>
     </li>`).join("");
 
   const setOpen = (li, open) => {
     li.classList.toggle("open", open);
-    $(".job-head", li).setAttribute("aria-expanded", open);
+    $(".job-toggle", li).setAttribute("aria-expanded", open);
+    const more = $(".more", li);
+    more.textContent = open ? "收合細節" : `展開 ${more.dataset.n} 項細節`;
   };
-  $$(".job").forEach(li => $(".job-head", li).addEventListener("click", () => { setOpen(li, !li.classList.contains("open")); syncExpandBtn(); }));
   const syncExpandBtn = () => { $("#expandAll").textContent = $$(".job").every(li => li.classList.contains("open")) ? "全部收合" : "全部展開"; };
+  // 整張卡片頭可點；鍵盤使用者透過標題按鈕操作
+  $$(".job").forEach(li => $(".job-head", li).addEventListener("click", () => { setOpen(li, !li.classList.contains("open")); syncExpandBtn(); }));
   $("#expandAll").addEventListener("click", () => {
     const all = $$(".job").every(li => li.classList.contains("open"));
     $$(".job").forEach(li => setOpen(li, !all));
@@ -66,7 +76,7 @@
   let active = null;
   const applyFilter = skill => {
     active = active === skill ? null : skill;
-    $$(".chip").forEach(c => c.classList.toggle("on", c.dataset.skill === active));
+    $$(".chip[data-skill]").forEach(c => { const on = c.dataset.skill === active; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
     $$(".tag").forEach(t => t.classList.toggle("on", t.dataset.skill === active));
     let n = 0;
     $$(".job").forEach(li => {
@@ -80,19 +90,19 @@
     $("#filterBar").hidden = !active;
     if (active) {
       $("#filterName").textContent = active;
-      $("#filterCount").textContent = `— ${n} 段經歷使用`;
+      $("#filterCount").textContent = `— ${n} 段經歷用到`;
       const first = $(".job.hit");
-      if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+      if (first) first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
     }
   };
-  $("#skillGroups").addEventListener("click", e => { const c = e.target.closest(".chip"); if (c && !c.classList.contains("muted")) applyFilter(c.dataset.skill); });
-  $("#timeline").addEventListener("click", e => { const t = e.target.closest(".tag"); if (t) applyFilter(t.dataset.skill); });
+  $("#skillGroups").addEventListener("click", e => { const c = e.target.closest(".chip[data-skill]"); if (c) applyFilter(c.dataset.skill); });
+  $("#timeline").addEventListener("click", e => { const t = e.target.closest(".tag"); if (t) { e.stopPropagation(); applyFilter(t.dataset.skill); } });
   $("#clearFilter").addEventListener("click", () => applyFilter(active));
 
   // Portfolio
   let cat = R.portfolioCats[0];
   const renderPf = () => {
-    $("#pfTabs").innerHTML = R.portfolioCats.map(c => `<button class="tab${c === cat ? " on" : ""}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
+    $("#pfTabs").innerHTML = R.portfolioCats.map(c => `<button class="tab${c === cat ? " on" : ""}" aria-pressed="${c === cat}" data-cat="${esc(c)}">${esc(c)}</button>`).join("");
     $("#pfCards").innerHTML = R.portfolio.filter(p => cat === R.portfolioCats[0] || p.cat === cat).map(p => `
       <a class="card" href="${esc(p.url || R.portfolioDrive)}" target="_blank" rel="noopener">
         <span class="card-ref">${esc(p.ref)} · ${esc(p.cat)}</span>
@@ -110,25 +120,27 @@
 
   // Toast
   const toast = msg => { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2200); };
-  $("#langBtn").addEventListener("click", () => toast("英文版即將推出"));
-  $("#copyEmail").addEventListener("click", () => {
+  $$(".copy-email").forEach(b => b.addEventListener("click", () => {
     navigator.clipboard.writeText("pontussecret@gmail.com").then(() => toast("已複製 Email"), () => toast("pontussecret@gmail.com"));
-  });
+  }));
 
-  // 進場動畫與導覽列高亮
-  const io = new IntersectionObserver(es => es.forEach(e => {
-    if (!e.isIntersecting) return;
-    e.target.classList.add("in");
-    $$(".kpi-num", e.target).forEach(countUp);
-    io.unobserve(e.target);
-  }), { threshold: 0.15 });
-  $$(".hero, .section").forEach(s => io.observe(s));
-
+  // 導覽列高亮，並在手機上把目前項目捲入可視範圍
   const navLinks = $$("#nav a");
   const spy = new IntersectionObserver(es => es.forEach(e => {
-    if (e.isIntersecting) navLinks.forEach(a => a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id));
+    if (!e.isIntersecting) return;
+    navLinks.forEach(a => {
+      const on = a.getAttribute("href") === "#" + e.target.id;
+      a.classList.toggle("on", on);
+      if (on) a.scrollIntoView({ block: "nearest", inline: "nearest" });
+    });
   }), { rootMargin: "-45% 0px -50% 0px" });
   $$("main section[id]").forEach(s => spy.observe(s));
+
+  const nav = $("#nav");
+  const syncNavFade = () => nav.classList.toggle("at-end", nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 4);
+  nav.addEventListener("scroll", syncNavFade, { passive: true });
+  addEventListener("resize", syncNavFade);
+  syncNavFade();
 
   window.addEventListener("beforeprint", () => $$(".job").forEach(li => setOpen(li, true)));
 })();
