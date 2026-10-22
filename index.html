@@ -13,34 +13,39 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" hreflang="zh-Hant" href="https://harryputaiwan.github.io/">
+<link rel="alternate" hreflang="en" href="https://harryputaiwan.github.io/?lang=en">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="topbar">
   <div class="wrap topbar-inner">
     <a href="#top" class="brand">蒲冠吉 <span>Guan-Ji Pu</span></a>
-    <nav class="nav" id="nav" aria-label="頁面導覽">
-      <a href="#about">簡介</a>
-      <a href="#skills">技能</a>
-      <a href="#experience">經歷</a>
-      <a href="#portfolio">作品集</a>
-      <a href="#education">學歷證照</a>
-      <a href="#contact">聯絡</a>
+    <nav class="nav" id="nav" aria-label="Page">
+      <a href="#about" data-i18n="nav.about">簡介</a>
+      <a href="#skills" data-i18n="nav.skills">技能</a>
+      <a href="#experience" data-i18n="nav.experience">經歷</a>
+      <a href="#portfolio" data-i18n="nav.portfolio">作品集</a>
+      <a href="#education" data-i18n="nav.education">學歷證照</a>
+      <a href="#contact" data-i18n="nav.contact">聯絡</a>
     </nav>
     <div class="tools">
-      <button class="ghost" onclick="window.print()" aria-label="列印或另存 PDF">列印</button>
+      <button class="ghost" id="langBtn" lang="en">EN</button>
+      <button class="ghost print-btn" id="printBtn" data-i18n="print">列印</button>
     </div>
   </div>
 </header>
 
 <main id="top">
   <section class="hero wrap" id="about">
-    <p class="eyebrow">資料分析 · 資料工程 · 機器學習 · AI 應用</p>
+    <p class="eyebrow" data-i18n="eyebrow">資料分析 · 資料工程 · 機器學習 · AI 應用</p>
     <h1>蒲冠吉 <small>Guan-Ji Pu</small></h1>
     <p class="lead" id="lead"></p>
     <div class="hero-actions">
       <a class="btn primary" href="https://www.linkedin.com/in/guan-ji-pu" target="_blank" rel="noopener">LinkedIn</a>
-      <button class="btn copy-email">複製 Email</button>
+      <button class="btn copy-email" data-i18n="copyEmail">複製 Email</button>
     </div>
     <div class="status"><span class="dot"></span><span id="status"></span></div>
     <div class="kpis" id="kpis"></div>
@@ -49,50 +54,52 @@
 
   <section class="wrap section" id="skills">
     <div class="section-head">
-      <h2>專業技能</h2>
-      <p class="hint">點選技能，下方會標示用到它的工作經歷</p>
+      <h2 data-i18n="skillsTitle">專業技能</h2>
+      <p class="hint" data-i18n="skillsHint">點選技能，下方會標示用到它的工作經歷</p>
     </div>
     <div id="skillGroups"></div>
   </section>
 
   <section class="wrap section" id="experience">
     <div class="section-head">
-      <h2>工作經歷</h2>
+      <h2 data-i18n="expTitle">工作經歷</h2>
       <button class="ghost" id="expandAll">全部展開</button>
     </div>
-    <p class="hint" id="expHint">點擊各段經歷，可展開工作細節與成果</p>
-    <p class="hl-bar" id="hlBar" hidden><span id="hlText"></span><button class="link" id="hlClear">清除標示</button></p>
+    <p class="hint" id="expHint" data-i18n="expHint">點擊各段經歷，可展開工作細節與成果</p>
+    <p class="hl-bar" id="hlBar" hidden><span id="hlText"></span><button class="link" id="hlClear" data-i18n="hlClear">清除標示</button></p>
     <ol class="timeline" id="timeline"></ol>
   </section>
 
   <section class="wrap section" id="portfolio">
     <div class="section-head">
-      <h2>作品集</h2>
-      <div class="tabs" id="pfTabs" role="group" aria-label="作品分類"></div>
+      <h2 data-i18n="pfTitle">作品集</h2>
+      <div class="tabs" id="pfTabs" role="group"></div>
     </div>
     <div class="cards" id="pfCards"></div>
   </section>
 
   <section class="wrap section" id="education">
-    <div class="section-head"><h2>學歷 · 證照 · 語言</h2></div>
+    <div class="section-head"><h2 data-i18n="eduTitle">學歷 · 證照 · 語言</h2></div>
     <div class="grid3">
-      <div class="panel"><h3>學歷</h3><div id="edu"></div></div>
-      <div class="panel"><h3>證照</h3><div id="certs"></div></div>
-      <div class="panel"><h3>語言</h3><div id="langs"></div></div>
+      <div class="panel"><h3 data-i18n="edu">學歷</h3><div id="edu"></div></div>
+      <div class="panel"><h3 data-i18n="certs">證照</h3><div id="certs"></div></div>
+      <div class="panel"><h3 data-i18n="langs">語言</h3><div id="langs"></div></div>
     </div>
   </section>
 
   <section class="wrap section contact" id="contact">
-    <h2>聯絡我</h2>
-    <p>歡迎透過 LinkedIn 或 Email（pontussecret@gmail.com）與我聯繫。</p>
+    <h2 data-i18n="contactTitle">聯絡我</h2>
+    <p data-i18n="contactText">歡迎透過 LinkedIn 或 Email（pontussecret@gmail.com）與我聯繫。</p>
     <div class="contact-links">
       <a class="btn primary" href="https://www.linkedin.com/in/guan-ji-pu" target="_blank" rel="noopener">LinkedIn</a>
-      <button class="btn copy-email">複製 Email</button>
+      <button class="btn copy-email" data-i18n="copyEmail">複製 Email</button>
     </div>
+    <p class="print-only">linkedin.com/in/guan-ji-pu</p>
+    <p class="print-only" data-i18n="printNote">線上互動版：harryputaiwan.github.io</p>
   </section>
 </main>
 
-<footer class="wrap footer">© 2026 Guan-Ji Pu</footer>
+<footer class="wrap footer"><span>© 2026 Guan-Ji Pu</span><span id="updated"></span></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script src="data.js"></script>
 <script src="script.js"></script>
