@@ -27,19 +27,16 @@
     });
   }
 
-  // Skills
-  const usage = {};
-  R.jobs.forEach(j => j.tags.forEach(t => (usage[t] = (usage[t] || 0) + 1)));
+  // Skills：依熟練度排序，底色深淺代表熟練度，並附文字供螢幕閱讀器使用
   $("#skillGroups").innerHTML = R.skillGroups.map(g => `
-    <div class="skill-group"><h3>${esc(g.name)}</h3><div class="chips">
-      ${g.skills.map(s => usage[s]
-        ? `<button class="chip" data-skill="${esc(s)}" aria-pressed="false">${esc(s)}<em aria-label="${usage[s]} 段經歷">${usage[s]}</em></button>`
-        : `<span class="chip static">${esc(s)}</span>`).join("")}
-    </div></div>`).join("");
+    <div class="skill-group"><h3>${esc(g.name)}</h3><ul class="chips">
+      ${[...g.skills].sort((a, b) => a[1].localeCompare(b[1])).map(([s, lv]) =>
+        `<li class="chip lv-${lv}" title="${esc(R.skillLevels[lv])}">${esc(s)}<span class="sr">（${esc(R.skillLevels[lv])}）</span></li>`).join("")}
+    </ul></div>`).join("");
 
   // Timeline
   $("#timeline").innerHTML = R.jobs.map(j => `
-    <li class="job" id="job-${j.id}" data-tags="${esc(j.tags.join("|"))}">
+    <li class="job" id="job-${j.id}">
       <div class="job-head">
         <div class="job-meta"><span class="job-period">${esc(j.period)}</span><span class="industry">${esc(j.industry)}</span></div>
         <h3><button class="job-toggle" aria-expanded="false" aria-controls="body-${j.id}">${esc(j.title)} <span class="at">@ ${esc(j.company)}</span></button></h3>
@@ -53,7 +50,7 @@
       <div class="job-body" id="body-${j.id}"><div class="job-inner">
         <p class="job-intro">${esc(j.intro)}</p>
         <div class="details">${j.details.map(d => `<div class="detail"><h4>${esc(d.h)}</h4><p>${esc(d.p)}</p></div>`).join("")}</div>
-        <div class="tags">${j.tags.map(t => `<button class="tag" data-skill="${esc(t)}">${esc(t)}</button>`).join("")}</div>
+        <div class="tags">${j.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}</div>
       </div></div>
     </li>`).join("");
 
@@ -71,33 +68,6 @@
     $$(".job").forEach(li => setOpen(li, !all));
     syncExpandBtn();
   });
-
-  // 技能篩選
-  let active = null;
-  const applyFilter = skill => {
-    active = active === skill ? null : skill;
-    $$(".chip[data-skill]").forEach(c => { const on = c.dataset.skill === active; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
-    $$(".tag").forEach(t => t.classList.toggle("on", t.dataset.skill === active));
-    let n = 0;
-    $$(".job").forEach(li => {
-      const hit = active && li.dataset.tags.split("|").includes(active);
-      if (hit) n++;
-      li.classList.toggle("hit", !!hit);
-      li.classList.toggle("dim", !!active && !hit);
-      if (hit) setOpen(li, true);
-    });
-    syncExpandBtn();
-    $("#filterBar").hidden = !active;
-    if (active) {
-      $("#filterName").textContent = active;
-      $("#filterCount").textContent = `— ${n} 段經歷用到`;
-      const first = $(".job.hit");
-      if (first) first.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
-    }
-  };
-  $("#skillGroups").addEventListener("click", e => { const c = e.target.closest(".chip[data-skill]"); if (c) applyFilter(c.dataset.skill); });
-  $("#timeline").addEventListener("click", e => { const t = e.target.closest(".tag"); if (t) { e.stopPropagation(); applyFilter(t.dataset.skill); } });
-  $("#clearFilter").addEventListener("click", () => applyFilter(active));
 
   // Portfolio
   let cat = R.portfolioCats[0];

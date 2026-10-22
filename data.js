@@ -2,7 +2,7 @@
 window.RESUME = {
   lead: "擁有 7 年以上資料分析、資料工程與機器學習經驗，橫跨銀行、金融科技 SaaS、線上平台與電商產業。擅長從需求訪談到資料管線、模型與 BI 報表的端到端交付，並持續將 AI Agent 與 MCP 應用於日常工作流程。",
   highlights: [
-    ["端到端資料解決方案", "設計 ETL/ELT 管線、預測模型、詐欺偵測與互動式 BI 報表（Python、SQL、Spark、AWS）"],
+    ["端到端資料解決方案", "設計 ETL/ELT 管線、預測模型、詐欺偵測與互動式 BI 報表（Python、SQL、Airflow、AWS Redshift／RDS、BI 工具）"],
     ["AI 工具實務應用", "運用 AI Agent 與 MCP 加速知識檢索、報告產出與程式開發"],
     ["商業與 IT 的橋樑", "需求訪談、利害關係人溝通，參與 50+ 人跨部門大型系統轉換專案"]
   ],
@@ -11,14 +11,17 @@ window.RESUME = {
     { value: 7, suffix: "+ 年", label: "資料相關工作經驗" },
     { value: 100, prefix: "USD ", suffix: "K", label: "詐欺偵測單季減少損失" },
     { value: 35, suffix: "M+", label: "資料管線支援的用戶規模" },
-    { value: 1.9, suffix: "x", decimals: 1, label: "模型導入後轉換率提升" }
+    { value: 2, prefix: "約 ", suffix: " 小時", label: "根因報告初版產出時間" }
   ],
+  // 熟練度：A 精通、B 熟練、C 具實務經驗
+  skillLevels: { A: "精通", B: "熟練", C: "具實務經驗" },
   skillGroups: [
-    { name: "資料科學與建模", skills: ["統計檢定", "預測模型", "LightGBM", "推薦系統", "詐欺偵測", "模型監控與再訓練"] },
-    { name: "資料工程", skills: ["ETL/ELT", "Airflow", "AWS Redshift/RDS", "Spark", "Hadoop / Kafka", "SQL 優化"] },
-    { name: "程式與 BI 平台", skills: ["Python", "SQL", "R", "Tableau", "Power BI", "Metabase", "Databricks", "JavaScript / D3.js"] },
-    { name: "AI 與自動化", skills: ["AI Agent", "MCP", "Claude Code / Windsurf", "RPA", "Chrome Extension"] },
-    { name: "專案與溝通", skills: ["需求訪談", "利害關係人管理", "Scrum", "教育訓練"] }
+    { name: "資料分析與 BI", skills: [["SQL（MySQL、Hive、Trino）", "A"], ["Metabase", "A"], ["Zeppelin", "A"], ["指標與儀表板設計", "A"], ["Tableau", "B"], ["Power BI", "B"]] },
+    { name: "資料工程", skills: [["Python", "A"], ["ETL／ELT 管線設計", "A"], ["Airflow", "A"], ["資料品質驗證", "A"], ["AWS（Redshift、RDS）", "B"], ["Spark", "C"], ["Hadoop／Kafka／Elasticsearch", "C"], ["Databricks", "C"]] },
+    { name: "機器學習與統計", skills: [["LightGBM", "A"], ["預測模型", "A"], ["統計檢定", "A"], ["推薦系統（協同過濾）", "B"], ["A/B 測試", "B"], ["詐欺與異常偵測", "B"], ["模型監控與再訓練", "B"], ["R", "B"]] },
+    { name: "AI 應用與自動化", skills: [["AI Agent", "A"], ["MCP", "A"], ["Claude Code", "A"], ["Windsurf", "A"], ["RPA（Python）", "A"], ["Chrome Extension", "A"], ["JavaScript／D3.js", "C"]] },
+    { name: "產業領域", skills: [["反洗錢（AML）", "B"], ["銀行資料倉儲與核心系統轉換", "B"], ["電商營運", "B"], ["線上平台詐欺偵測", "B"]] },
+    { name: "專案與協作", skills: [["需求訪談", "A"], ["內部教育訓練", "A"], ["利害關係人管理", "B"], ["Scrum（PSM／PSPO）", "B"]] }
   ],
   jobs: [
     {
@@ -27,15 +30,15 @@ window.RESUME = {
       company: "Coupang",
       period: "2026.01 – 2026.08",
       intro: "電商平台。支援客服部門與高階主管的資料需求。",
-      summary: "提供客服部門與主管端到端資料方案：SQL 查詢、即時報表、互動式儀表板、Chrome Extension 與自動化資料管線。",
+      summary: "提供客服部門與主管端到端資料方案：SQL 查詢、根因分析（RCA）臨時需求報表、即時營運報表、互動式儀表板、Chrome Extension 與自動化資料管線。",
       details: [
-        { h: "客服查詢 Chrome Extension", p: "開發 Chrome Extension 解決客服部門資料查詢問題，整合跨系統資料、串接查詢 API 並支援大量批次查詢，讓營運專員能快速完成業務流程。" },
-        { h: "品牌審核規則（Brand Gating Rules）設計", p: "商家上架品牌商品需經審核。以 AI 搭配 Python 建立規則產製流程，大量產生 gating regex 規則，並以歷史資料驗證 recall，快速完成大量規則設計。" },
-        { h: "AI Agent 與 MCP 的實務應用", p: "使用 Windsurf（搭配工作 skills）、Claude Code，以及部門同事開發的內部工具——串接內部 Wiki 的 MCP（彙整文件產出知識報告）、Slack 知識問答機器人、由歷史 SQL 萃取商業知識的「資料表使用說明」——加速知識檢索、程式開發與 Power BI、Zeppelin 報表製作。" },
+        { h: "客服查詢資料解決方案", p: "提供 Chrome Extension、即時營運報表等資料工具，解決客服部門的資料查詢問題：整合跨系統資料、串接查詢 API 並支援大量批次查詢，讓營運專員能快速完成業務流程。" },
+        { h: "品牌審核規則（Brand Gating Rules）設計", p: "商家上架品牌商品需經審核。以 Python 搭配 AI 建立規則產製流程，大量產生 gating regex 規則，並以歷史資料驗證 Recall。相較人工撰寫（缺少完整 Recall 驗證、容易寫錯、條件過嚴或過寬），規則品質更穩定；共處理約 500 個品牌，每個品牌約省 5 分鐘，累計約 40 小時。" },
+        { h: "AI Agent 與 MCP 的實務應用", p: "使用 Windsurf（搭配工作 skills）、Claude Code，以及內部工具——串接內部 Wiki 的 MCP（彙整文件產出知識報告）、Slack 知識問答機器人、由歷史 SQL 萃取商業知識的「資料表使用說明」——加速知識檢索、程式開發與 BI 報表製作。" },
         { h: "根因分析報告加速", p: "原本需要半天到一天才能完成的根因分析報告，運用 AI 工具後約 2 小時即可產出第一版。" }
       ],
-      results: ["根因報告初版：半天～1 天 → 約 2 小時"],
-      tags: ["SQL", "Python", "Power BI", "Chrome Extension", "AI Agent", "MCP", "Claude Code / Windsurf", "ETL/ELT"]
+      results: ["根因報告初版：半天～1 天 → 約 2 小時", "約 500 個品牌規則，省下約 40 小時"],
+      tags: ["SQL", "Python", "Zeppelin", "Power BI", "Chrome Extension", "AI Agent", "MCP", "Claude Code", "Windsurf"]
     },
     {
       id: "tookitaki", industry: "AML 合規 SaaS",
@@ -45,12 +48,12 @@ window.RESUME = {
       intro: "反洗錢（AML）合規 SaaS 公司。客戶為菲律賓、新加坡、馬來西亞、澳洲、紐西蘭等地金融機構。",
       summary: "於客戶服務端對接金融機構，協助設定大型合規 SaaS 解決方案，使產品行為符合 AML 態樣、名單篩檢與各機構需求。",
       details: [
-        { h: "客戶問題技術排解", p: "企業客戶在產品使用上遇到問題時，運用 AI 協助剖析程式碼，釐清資料管線與產品行為並回覆客戶；排查範圍涵蓋 Hadoop、Spark、Kafka、Elasticsearch 與 AWS 上的工作流程。" },
+        { h: "客戶問題技術排解", p: "企業客戶在產品使用上遇到問題時，運用 AI 協助剖析反洗錢系統，釐清資料管線與產品行為並回覆客戶；排查範圍涵蓋 Hadoop、Spark、Kafka、Elasticsearch 與 AWS 上的工作流程。" },
         { h: "參數設定建議", p: "依客戶特性（風險偏好），以及分析警示（alert）的 true positive／false positive 狀況，建議產品參數設定。" },
         { h: "分析流程自動化", p: "以 Python 與 SQL 自動化分析流程，每位客戶每季可減少 1.5 天的警示資料處理時間。" }
       ],
       results: ["每客戶每季節省 1.5 天警示資料處理時間"],
-      tags: ["Python", "SQL", "Spark", "Hadoop / Kafka", "AI Agent", "統計檢定", "需求訪談", "利害關係人管理"]
+      tags: ["Python", "SQL", "Spark", "Hadoop／Kafka／Elasticsearch", "AWS", "AI Agent", "反洗錢（AML）", "需求訪談"]
     },
     {
       id: "opennet", industry: "線上娛樂平台",
@@ -65,7 +68,7 @@ window.RESUME = {
         { h: "資料管線與儀表板", p: "以 Airflow 與 AWS（Redshift／RDS）設計並優化資料管線，支援 OKR、營運與顧客終身價值（LTV）儀表板，提升跨團隊資訊透明度。" }
       ],
       results: ["單季減少 USD 100K 損失", "支援 35M+ 用戶分析", "南非新市場資料上線"],
-      tags: ["Airflow", "AWS Redshift/RDS", "ETL/ELT", "SQL 優化", "Python", "SQL", "Metabase", "詐欺偵測"]
+      tags: ["Python", "SQL", "Airflow", "AWS（Redshift、RDS）", "ETL／ELT", "Metabase", "詐欺與異常偵測"]
     },
     {
       id: "esun-ba", industry: "銀行",
@@ -82,7 +85,7 @@ window.RESUME = {
         { h: "業務績效 BI 報表自動化", p: "將原本以 Excel、人工蒐集數據製作的業務績效報表，改為 Tableau 自動產生，提升營運可視性並減少 60% 報表工作量。" }
       ],
       results: ["108 項資料需求分析", "預估年省 NTD 1 億元維運成本", "績效報表工作量減少 60%"],
-      tags: ["需求訪談", "利害關係人管理", "JavaScript / D3.js", "RPA", "Python", "Tableau", "SQL", "Scrum"]
+      tags: ["需求訪談", "利害關係人管理", "Tableau", "RPA（Python）", "JavaScript／D3.js", "SQL"]
     },
     {
       id: "esun-ds", industry: "銀行",
@@ -99,7 +102,7 @@ window.RESUME = {
         { h: "內部教育訓練", p: "主辦 Python、RPA 工作坊（每場約 30 人）與部門推力理論（Nudge）講座（100+ 人），協助同仁建立資料素養與自動化能力。" }
       ],
       results: ["轉換率 1.9 倍", "60% 客戶採用率", "推薦系統離線點擊 +42%"],
-      tags: ["LightGBM", "預測模型", "推薦系統", "模型監控與再訓練", "統計檢定", "Python", "R", "SQL", "RPA", "教育訓練"]
+      tags: ["Python", "SQL", "LightGBM", "預測模型", "A/B 測試", "推薦系統", "模型監控與再訓練", "內部教育訓練"]
     }
   ],
   portfolioDrive: "https://drive.google.com/drive/folders/1uxhiTcDH05uTJdzGqUAjDpVywo7NNsLn",
