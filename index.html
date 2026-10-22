@@ -50,9 +50,7 @@
   <section class="wrap section" id="skills">
     <div class="section-head">
       <h2>專業技能</h2>
-      <p class="legend" aria-label="熟練度圖例">
-        <span class="chip lv-A">精通</span><span class="chip lv-B">熟練</span><span class="chip lv-C">具實務經驗</span>
-      </p>
+      <p class="hint">點選技能，下方會標示用到它的工作經歷</p>
     </div>
     <div id="skillGroups"></div>
   </section>
@@ -62,7 +60,8 @@
       <h2>工作經歷</h2>
       <button class="ghost" id="expandAll">全部展開</button>
     </div>
-    <p class="hint">點擊各段經歷，可展開工作細節與成果</p>
+    <p class="hint" id="expHint">點擊各段經歷，可展開工作細節與成果</p>
+    <p class="hl-bar" id="hlBar" hidden><span id="hlText"></span><button class="link" id="hlClear">清除標示</button></p>
     <ol class="timeline" id="timeline"></ol>
   </section>
 

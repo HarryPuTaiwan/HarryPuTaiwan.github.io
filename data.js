@@ -13,8 +13,7 @@ window.RESUME = {
     { value: 35, suffix: "M+", label: "資料管線支援的用戶規模" },
     { value: 2, prefix: "約 ", suffix: " 小時", label: "根因報告初版產出時間" }
   ],
-  // 熟練度：A 精通、B 熟練、C 具實務經驗
-  skillLevels: { A: "精通", B: "熟練", C: "具實務經驗" },
+  // 技能後的 A/B/C 為熟練度，只用於排序（熟練的排前面），不在畫面上顯示
   skillGroups: [
     { name: "資料分析與 BI", skills: [["SQL（MySQL、Hive、Trino）", "A"], ["Metabase", "A"], ["Zeppelin", "A"], ["指標與儀表板設計", "A"], ["Tableau", "B"], ["Power BI", "B"]] },
     { name: "資料工程", skills: [["Python", "A"], ["ETL／ELT 管線設計", "A"], ["Airflow", "A"], ["資料品質驗證", "A"], ["AWS（Redshift、RDS）", "B"], ["Spark", "C"], ["Hadoop／Kafka／Elasticsearch", "C"], ["Databricks", "C"]] },
@@ -38,7 +37,7 @@ window.RESUME = {
         { h: "根因分析報告加速", p: "原本需要半天到一天才能完成的根因分析報告，運用 AI 工具後約 2 小時即可產出第一版。" }
       ],
       results: ["根因報告初版：半天～1 天 → 約 2 小時", "約 500 個品牌規則，省下約 40 小時"],
-      tags: ["SQL", "Python", "Zeppelin", "Power BI", "Chrome Extension", "AI Agent", "MCP", "Claude Code", "Windsurf"]
+      tags: ["Python", "SQL（MySQL、Hive、Trino）", "Zeppelin", "Power BI", "指標與儀表板設計", "ETL／ELT 管線設計", "AI Agent", "MCP", "Claude Code", "Windsurf", "Chrome Extension", "電商營運", "需求訪談"]
     },
     {
       id: "tookitaki", industry: "AML 合規 SaaS",
@@ -53,7 +52,7 @@ window.RESUME = {
         { h: "分析流程自動化", p: "以 Python 與 SQL 自動化分析流程，每位客戶每季可減少 1.5 天的警示資料處理時間。" }
       ],
       results: ["每客戶每季節省 1.5 天警示資料處理時間"],
-      tags: ["Python", "SQL", "Spark", "Hadoop／Kafka／Elasticsearch", "AWS", "AI Agent", "反洗錢（AML）", "需求訪談"]
+      tags: ["Python", "SQL（MySQL、Hive、Trino）", "Spark", "Hadoop／Kafka／Elasticsearch", "AI Agent", "詐欺與異常偵測", "反洗錢（AML）", "需求訪談", "利害關係人管理"]
     },
     {
       id: "opennet", industry: "線上娛樂平台",
@@ -68,7 +67,7 @@ window.RESUME = {
         { h: "資料管線與儀表板", p: "以 Airflow 與 AWS（Redshift／RDS）設計並優化資料管線，支援 OKR、營運與顧客終身價值（LTV）儀表板，提升跨團隊資訊透明度。" }
       ],
       results: ["單季減少 USD 100K 損失", "支援 35M+ 用戶分析", "南非新市場資料上線"],
-      tags: ["Python", "SQL", "Airflow", "AWS（Redshift、RDS）", "ETL／ELT", "Metabase", "詐欺與異常偵測"]
+      tags: ["Python", "SQL（MySQL、Hive、Trino）", "Airflow", "AWS（Redshift、RDS）", "ETL／ELT 管線設計", "資料品質驗證", "Metabase", "指標與儀表板設計", "詐欺與異常偵測", "線上平台詐欺偵測"]
     },
     {
       id: "esun-ba", industry: "銀行",
@@ -85,7 +84,7 @@ window.RESUME = {
         { h: "業務績效 BI 報表自動化", p: "將原本以 Excel、人工蒐集數據製作的業務績效報表，改為 Tableau 自動產生，提升營運可視性並減少 60% 報表工作量。" }
       ],
       results: ["108 項資料需求分析", "預估年省 NTD 1 億元維運成本", "績效報表工作量減少 60%"],
-      tags: ["需求訪談", "利害關係人管理", "Tableau", "RPA（Python）", "JavaScript／D3.js", "SQL"]
+      tags: ["需求訪談", "利害關係人管理", "SQL（MySQL、Hive、Trino）", "Tableau", "指標與儀表板設計", "RPA（Python）", "JavaScript／D3.js", "銀行資料倉儲與核心系統轉換", "Scrum（PSM／PSPO）"]
     },
     {
       id: "esun-ds", industry: "銀行",
@@ -102,7 +101,7 @@ window.RESUME = {
         { h: "內部教育訓練", p: "主辦 Python、RPA 工作坊（每場約 30 人）與部門推力理論（Nudge）講座（100+ 人），協助同仁建立資料素養與自動化能力。" }
       ],
       results: ["轉換率 1.9 倍", "60% 客戶採用率", "推薦系統離線點擊 +42%"],
-      tags: ["Python", "SQL", "LightGBM", "預測模型", "A/B 測試", "推薦系統", "模型監控與再訓練", "內部教育訓練"]
+      tags: ["Python", "SQL（MySQL、Hive、Trino）", "LightGBM", "預測模型", "統計檢定", "A/B 測試", "推薦系統（協同過濾）", "模型監控與再訓練", "RPA（Python）", "內部教育訓練"]
     }
   ],
   portfolioDrive: "https://drive.google.com/drive/folders/1uxhiTcDH05uTJdzGqUAjDpVywo7NNsLn",

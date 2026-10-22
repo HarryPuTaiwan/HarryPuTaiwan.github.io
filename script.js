@@ -27,18 +27,18 @@
     });
   }
 
-  // Skills：依熟練度排序，底色深淺代表熟練度，並附文字供螢幕閱讀器使用
+  // Skills：外觀一致，依熟練度排序（熟練的排前面）
   $("#skillGroups").innerHTML = R.skillGroups.map(g => `
-    <div class="skill-group"><h3>${esc(g.name)}</h3><ul class="chips">
-      ${[...g.skills].sort((a, b) => a[1].localeCompare(b[1])).map(([s, lv]) =>
-        `<li class="chip lv-${lv}" title="${esc(R.skillLevels[lv])}">${esc(s)}<span class="sr">（${esc(R.skillLevels[lv])}）</span></li>`).join("")}
-    </ul></div>`).join("");
+    <div class="skill-group"><h3>${esc(g.name)}</h3><div class="chips">
+      ${[...g.skills].sort((a, b) => a[1].localeCompare(b[1])).map(([s]) =>
+        `<button class="chip" data-skill="${esc(s)}" aria-pressed="false">${esc(s)}</button>`).join("")}
+    </div></div>`).join("");
 
   // Timeline
   $("#timeline").innerHTML = R.jobs.map(j => `
-    <li class="job" id="job-${j.id}">
+    <li class="job" id="job-${j.id}" data-tags="${esc(j.tags.join("|"))}">
       <div class="job-head">
-        <div class="job-meta"><span class="job-period">${esc(j.period)}</span><span class="industry">${esc(j.industry)}</span></div>
+        <div class="job-meta"><span class="job-period">${esc(j.period)}</span><span class="industry">${esc(j.industry)}</span><span class="match" aria-hidden="true"></span></div>
         <h3><button class="job-toggle" aria-expanded="false" aria-controls="body-${j.id}">${esc(j.title)} <span class="at">@ ${esc(j.company)}</span></button></h3>
         <p class="job-sum">${esc(j.summary)}</p>
         <div class="job-foot">
@@ -68,6 +68,28 @@
     $$(".job").forEach(li => setOpen(li, !all));
     syncExpandBtn();
   });
+
+  // 點技能 → 標示用到它的經歷（不展開細節）
+  let active = null;
+  const highlight = skill => {
+    active = active === skill ? null : skill;
+    $$(".chip[data-skill]").forEach(c => { const on = c.dataset.skill === active; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on); });
+    const hits = [];
+    $$(".job").forEach(li => {
+      const hit = !!active && li.dataset.tags.split("|").includes(active);
+      li.classList.remove("hit");
+      if (hit) { void li.offsetWidth; li.classList.add("hit"); hits.push(li); }  // 重新觸發動畫
+      li.classList.toggle("dim", !!active && !hit);
+      $(".match", li).textContent = hit ? `用到 ${active}` : "";
+    });
+    $("#hlBar").hidden = !active;
+    $("#expHint").hidden = !!active;
+    if (!active) return;
+    $("#hlText").textContent = hits.length ? `已標示用到「${active}」的 ${hits.length} 段經歷` : `「${active}」為工作以外的學習經驗`;
+    (hits[0] || $("#experience")).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: hits[0] ? "center" : "start" });
+  };
+  $("#skillGroups").addEventListener("click", e => { const c = e.target.closest(".chip[data-skill]"); if (c) highlight(c.dataset.skill); });
+  $("#hlClear").addEventListener("click", () => highlight(active));
 
   // Portfolio
   let cat = R.portfolioCats[0];
