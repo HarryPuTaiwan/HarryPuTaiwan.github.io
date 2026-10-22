@@ -52,7 +52,7 @@ window.RESUME = {
         { h: "分析流程自動化", p: "以 Python 與 SQL 自動化分析流程，每位客戶每季可減少 1.5 天的警示資料處理時間。" }
       ],
       results: ["每客戶每季節省 1.5 天警示資料處理時間"],
-      tags: ["Python", "SQL（MySQL、Hive、Trino）", "Spark", "Hadoop／Kafka／Elasticsearch", "AI Agent", "詐欺與異常偵測", "反洗錢（AML）", "需求訪談", "利害關係人管理"]
+      tags: ["Python", "SQL（MySQL、Hive、Trino）", "Spark", "Hadoop／Kafka／Elasticsearch", "AI Agent", "反洗錢（AML）", "需求訪談", "利害關係人管理"]
     },
     {
       id: "opennet", industry: "線上娛樂平台",

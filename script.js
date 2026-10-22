@@ -5,6 +5,8 @@
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  const toast = msg => { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2200); };
+
   // Hero
   $("#lead").textContent = R.lead;
   $("#status").innerHTML = R.status;
@@ -86,7 +88,8 @@
     $("#expHint").hidden = !!active;
     if (!active) return;
     $("#hlText").textContent = hits.length ? `已標示用到「${active}」的 ${hits.length} 段經歷` : `「${active}」為工作以外的學習經驗`;
-    (hits[0] || $("#experience")).scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: hits[0] ? "center" : "start" });
+    // 不捲動頁面，只用提示告知標示結果
+    toast(hits.length ? `已在下方工作經歷標示 ${hits.length} 段` : `「${active}」為工作以外的學習經驗`);
   };
   $("#skillGroups").addEventListener("click", e => { const c = e.target.closest(".chip[data-skill]"); if (c) highlight(c.dataset.skill); });
   $("#hlClear").addEventListener("click", () => highlight(active));
@@ -111,7 +114,6 @@
   $("#langs").innerHTML = R.languages.map(([l, v]) => `<div class="row"><strong>${esc(l)}</strong><span class="muted-t">${esc(v)}</span></div>`).join("");
 
   // Toast
-  const toast = msg => { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 2200); };
   $$(".copy-email").forEach(b => b.addEventListener("click", () => {
     navigator.clipboard.writeText("pontussecret@gmail.com").then(() => toast("已複製 Email"), () => toast("pontussecret@gmail.com"));
   }));
