@@ -6,8 +6,9 @@
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const store = { get: k => { try { return localStorage.getItem(k); } catch (e) { return null; } }, set: (k, v) => { try { localStorage.setItem(k, v); } catch (e) {} } };
 
-  // 語言：網址 ?lang=en 優先，其次是上次的選擇，預設中文
-  let lang = new URLSearchParams(location.search).get("lang") || store.get("lang") || "zh";
+  // 語言：網址 ?lang= 優先，其次是上次手動切換的選擇，再依瀏覽器語言（中文→中文，其他→英文）
+  const browserLang = () => ((navigator.languages && navigator.languages[0]) || navigator.language || "zh").toLowerCase().startsWith("zh") ? "zh" : "en";
+  let lang = new URLSearchParams(location.search).get("lang") || store.get("lang") || browserLang();
   if (!D[lang]) lang = "zh";
   let L, U;
 
