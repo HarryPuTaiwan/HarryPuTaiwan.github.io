@@ -17,6 +17,26 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="alternate" hreflang="zh-Hant" href="https://harryputaiwan.github.io/">
 <link rel="alternate" hreflang="en" href="https://harryputaiwan.github.io/?lang=en">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Guan-Ji Pu",
+  "alternateName": "蒲冠吉",
+  "url": "https://harryputaiwan.github.io/",
+  "jobTitle": "Data Analyst / Data Analytics Engineer",
+  "description": "Data professional with 7+ years across data analytics, data engineering and machine learning in banking, fintech SaaS, online platforms and e-commerce.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Taipei", "addressCountry": "TW" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "National Taiwan University" },
+  "hasCredential": [
+    { "@type": "EducationalOccupationalCredential", "name": "Professional Scrum Master I (PSM I)", "url": "https://scrum.org/certificates/510007" },
+    { "@type": "EducationalOccupationalCredential", "name": "Professional Scrum Product Owner I (PSPO I)", "url": "https://scrum.org/certificates/510532" }
+  ],
+  "knowsAbout": ["SQL", "Python", "ETL/ELT pipelines", "Airflow", "AWS Redshift", "Metabase", "Tableau", "Power BI", "LightGBM", "Predictive modeling", "A/B testing", "Fraud detection", "AI agents", "MCP", "Anti-money laundering"],
+  "knowsLanguage": ["zh-TW", "en"],
+  "sameAs": ["https://www.linkedin.com/in/guan-ji-pu"]
+}
+</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -42,14 +62,22 @@
   <section class="hero wrap" id="about">
     <p class="eyebrow" data-i18n="eyebrow">資料分析 · 資料工程 · 機器學習 · AI 應用</p>
     <h1>蒲冠吉 <small>Guan-Ji Pu</small></h1>
-    <p class="lead" id="lead"></p>
+    <p class="lead" id="lead">擁有 7 年以上資料分析、資料工程與機器學習經驗，橫跨銀行、金融科技 SaaS、線上平台與電商產業。擅長從需求訪談到資料管線、模型與 BI 報表的端到端交付，並將 AI Agent 與 MCP 導入日常工作流程。</p>
     <div class="hero-actions">
       <a class="btn primary" href="https://www.linkedin.com/in/guan-ji-pu" target="_blank" rel="noopener">LinkedIn</a>
       <button class="btn copy-email" data-i18n="copyEmail">複製 Email</button>
     </div>
-    <div class="status"><span class="dot"></span><span id="status"></span></div>
-    <div class="kpis" id="kpis"></div>
-    <ul class="highlights" id="highlights"></ul>
+    <div class="status"><span class="dot"></span><span id="status">目前正在進修 AI 課程（<a href="https://ai-talent.tw/" target="_blank" rel="noopener">ai-talent.tw</a>），開放 AI 應用／BI 相關職缺洽談</span></div>
+    <div class="kpis" id="kpis">
+      <div class="kpi"><div class="kpi-num" data-i="0">7+ 年</div>
+      <div class="kpi-label">資料相關工作經驗</div></div>
+      <div class="kpi"><div class="kpi-num" data-i="1">USD 100K</div>
+      <div class="kpi-label">詐欺偵測單季減少損失</div></div>
+      <div class="kpi"><div class="kpi-num" data-i="2">35M+</div>
+      <div class="kpi-label">資料管線支援的用戶規模</div></div>
+      <div class="kpi"><div class="kpi-num" data-i="3">約 2 小時</div>
+      <div class="kpi-label">根因報告初版產出時間</div></div></div>
+    <ul class="highlights" id="highlights"><li><strong>端到端資料解決方案</strong><span>設計 ETL／ELT 管線、預測模型、詐欺偵測與互動式 BI 報表（Python、SQL、Airflow、AWS Redshift／RDS、BI 工具）</span></li><li><strong>AI 工具實務應用</strong><span>運用 AI Agent 與 MCP 加速知識檢索、報告產出與程式開發</span></li><li><strong>商業與 IT 的橋樑</strong><span>需求訪談、利害關係人溝通，參與 50+ 人跨部門大型系統轉換專案</span></li></ul>
   </section>
 
   <section class="wrap section" id="skills">
@@ -57,7 +85,25 @@
       <h2 data-i18n="skillsTitle">專業技能</h2>
       <p class="hint" data-i18n="skillsHint">點選技能，下方會標示用到它的工作經歷</p>
     </div>
-    <div id="skillGroups"></div>
+    <div id="skillGroups">
+      <div class="skill-group"><h3>資料分析與 BI</h3><div class="chips">
+        <button class="chip" data-skill="sql" aria-pressed="false">SQL（MySQL、Hive、Trino）</button><button class="chip" data-skill="metabase" aria-pressed="false">Metabase</button><button class="chip" data-skill="zeppelin" aria-pressed="false">Zeppelin</button><button class="chip" data-skill="dashboard" aria-pressed="false">指標與儀表板設計</button><button class="chip" data-skill="tableau" aria-pressed="false">Tableau</button><button class="chip" data-skill="powerbi" aria-pressed="false">Power BI</button>
+      </div></div>
+      <div class="skill-group"><h3>資料工程</h3><div class="chips">
+        <button class="chip" data-skill="python" aria-pressed="false">Python</button><button class="chip" data-skill="etl" aria-pressed="false">ETL／ELT 管線設計</button><button class="chip" data-skill="airflow" aria-pressed="false">Airflow</button><button class="chip" data-skill="dq" aria-pressed="false">資料品質驗證</button><button class="chip" data-skill="aws" aria-pressed="false">AWS（Redshift、RDS）</button><button class="chip" data-skill="spark" aria-pressed="false">Spark</button><button class="chip" data-skill="hadoop" aria-pressed="false">Hadoop／Kafka／Elasticsearch</button><button class="chip" data-skill="databricks" aria-pressed="false">Databricks</button>
+      </div></div>
+      <div class="skill-group"><h3>機器學習與統計</h3><div class="chips">
+        <button class="chip" data-skill="lightgbm" aria-pressed="false">LightGBM</button><button class="chip" data-skill="predictive" aria-pressed="false">預測模型</button><button class="chip" data-skill="stats" aria-pressed="false">統計檢定</button><button class="chip" data-skill="recsys" aria-pressed="false">推薦系統（協同過濾）</button><button class="chip" data-skill="abtest" aria-pressed="false">A/B 測試</button><button class="chip" data-skill="fraud" aria-pressed="false">詐欺與異常偵測</button><button class="chip" data-skill="mlops" aria-pressed="false">模型監控與再訓練</button><button class="chip" data-skill="r" aria-pressed="false">R</button>
+      </div></div>
+      <div class="skill-group"><h3>AI 應用與自動化</h3><div class="chips">
+        <button class="chip" data-skill="agent" aria-pressed="false">AI Agent</button><button class="chip" data-skill="mcp" aria-pressed="false">MCP</button><button class="chip" data-skill="claudecode" aria-pressed="false">Claude Code</button><button class="chip" data-skill="windsurf" aria-pressed="false">Windsurf</button><button class="chip" data-skill="rpa" aria-pressed="false">RPA（Python）</button><button class="chip" data-skill="chromeext" aria-pressed="false">Chrome Extension</button><button class="chip" data-skill="d3" aria-pressed="false">JavaScript／D3.js</button>
+      </div></div>
+      <div class="skill-group"><h3>產業領域</h3><div class="chips">
+        <button class="chip" data-skill="aml" aria-pressed="false">反洗錢（AML）</button><button class="chip" data-skill="bankdw" aria-pressed="false">銀行資料倉儲與核心系統轉換</button><button class="chip" data-skill="ecom" aria-pressed="false">電商營運</button><button class="chip" data-skill="platformfraud" aria-pressed="false">線上平台詐欺偵測</button>
+      </div></div>
+      <div class="skill-group"><h3>專案與協作</h3><div class="chips">
+        <button class="chip" data-skill="reqs" aria-pressed="false">需求訪談</button><button class="chip" data-skill="training" aria-pressed="false">內部教育訓練</button><button class="chip" data-skill="stakeholder" aria-pressed="false">利害關係人管理</button><button class="chip" data-skill="scrum" aria-pressed="false">Scrum（PSM／PSPO）</button>
+      </div></div></div>
   </section>
 
   <section class="wrap section" id="experience">
@@ -66,24 +112,143 @@
       <button class="ghost" id="expandAll">全部展開</button>
     </div>
     <p class="hint" id="expHint" data-i18n="expHint">點擊各段經歷，可展開工作細節與成果</p>
-    <p class="hl-bar" id="hlBar" hidden><span id="hlText"></span><button class="link" id="hlClear" data-i18n="hlClear">清除標示</button></p>
-    <ol class="timeline" id="timeline"></ol>
+    <p class="hl-bar" id="hlBar" hidden=""><span id="hlText"></span><button class="link" id="hlClear" data-i18n="hlClear">清除標示</button></p>
+    <ol class="timeline" id="timeline">
+      <li class="job" id="job-coupang" data-id="coupang">
+        <div class="job-head">
+          <div class="job-meta"><span class="job-period">2026.01 – 2026.08</span><span class="job-dur">8 個月</span><span class="industry">電商</span><span class="match" aria-hidden="true"></span></div>
+          <h3><button class="job-toggle" aria-expanded="false" aria-controls="body-coupang">Senior Data Analyst <span class="at">@ Coupang</span></button></h3>
+          <p class="job-sum">為客服部門與主管提供端到端資料方案：SQL 查詢、根因分析（RCA）臨時需求報表、即時營運報表、互動式儀表板、Chrome Extension 與自動化資料管線。</p>
+          <div class="job-foot">
+            <div class="results"><span>根因報告初版：半天～1 天 → 約 2 小時</span><span>約 500 個品牌規則，省下約 40 小時</span></div>
+            <span class="more">展開 4 項細節</span>
+          </div>
+          <span class="chev" aria-hidden="true"></span>
+        </div>
+        <div class="job-body" id="body-coupang"><div class="job-inner">
+          <p class="job-intro">電商平台。支援客服部門與高階主管的資料需求。</p>
+          <div class="details"><div class="detail"><h4>客服查詢資料解決方案</h4><p>提供 Chrome Extension、即時營運報表等資料工具，解決客服部門的查詢需求：整合跨系統資料、串接查詢 API、支援大量批次查詢，讓營運專員快速完成業務流程。</p></div><div class="detail"><h4>品牌審核規則（Brand Gating Rules）設計</h4><p>商家上架品牌商品需經審核。以 Python 搭配 AI 建立規則產製流程，大量產生 gating regex 規則，並用歷史資料驗證 Recall。相較人工撰寫（缺乏完整驗證、容易出錯、條件過嚴或過寬），規則品質更穩定；共處理約 500 個品牌，每個約省 5 分鐘，累計約 40 小時。</p></div><div class="detail"><h4>AI Agent 與 MCP 的實務應用</h4><p>日常以 Windsurf（搭配工作 skills）與 Claude Code 開發，並運用內部工具加速知識檢索、程式開發與 BI 報表製作，包括：串接內部 Wiki 的 MCP（彙整文件產出知識報告）、Slack 知識問答機器人，以及從歷史 SQL 萃取商業知識的「資料表使用說明」。</p></div><div class="detail"><h4>根因分析報告加速</h4><p>運用 AI 工具後，原需半天到一天的根因分析報告，約 2 小時即可產出第一版。</p></div></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">SQL（MySQL、Hive、Trino）</span><span class="tag">Zeppelin</span><span class="tag">Power BI</span><span class="tag">指標與儀表板設計</span><span class="tag">ETL／ELT 管線設計</span><span class="tag">AI Agent</span><span class="tag">MCP</span><span class="tag">Claude Code</span><span class="tag">Windsurf</span><span class="tag">Chrome Extension</span><span class="tag">電商營運</span><span class="tag">需求訪談</span></div>
+        </div></div>
+      </li>
+      <li class="job" id="job-tookitaki" data-id="tookitaki">
+        <div class="job-head">
+          <div class="job-meta"><span class="job-period">2025.07 – 2026.01</span><span class="job-dur">7 個月</span><span class="industry">AML 合規 SaaS</span><span class="match" aria-hidden="true"></span></div>
+          <h3><button class="job-toggle" aria-expanded="false" aria-controls="body-tookitaki">Data Scientist <span class="at">@ Tookitaki</span></button></h3>
+          <p class="job-sum">在客戶服務團隊對接金融機構，協助設定大型合規 SaaS 方案，使產品行為符合 AML 態樣、名單篩檢與各機構需求。</p>
+          <div class="job-foot">
+            <div class="results"><span>每客戶每季節省 1.5 天警示資料處理時間</span></div>
+            <span class="more">展開 3 項細節</span>
+          </div>
+          <span class="chev" aria-hidden="true"></span>
+        </div>
+        <div class="job-body" id="body-tookitaki"><div class="job-inner">
+          <p class="job-intro">反洗錢（AML）合規 SaaS 公司。客戶為菲律賓、新加坡、馬來西亞、澳洲、紐西蘭等地金融機構。</p>
+          <div class="details"><div class="detail"><h4>客戶問題技術排解</h4><p>客戶遇到產品問題時，運用 AI 剖析反洗錢系統、釐清資料管線與產品行為並回覆客戶；排查範圍涵蓋 Hadoop、Spark、Kafka、Elasticsearch 與 AWS 上的工作流程。</p></div><div class="detail"><h4>參數設定建議</h4><p>依客戶的風險偏好，並分析警示（alert）的 true positive／false positive 狀況，建議產品參數設定。</p></div><div class="detail"><h4>分析流程自動化</h4><p>以 Python 與 SQL 自動化分析流程，每位客戶每季可減少 1.5 天的警示資料處理時間。</p></div></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">SQL（MySQL、Hive、Trino）</span><span class="tag">Spark</span><span class="tag">Hadoop／Kafka／Elasticsearch</span><span class="tag">AI Agent</span><span class="tag">反洗錢（AML）</span><span class="tag">需求訪談</span><span class="tag">利害關係人管理</span></div>
+        </div></div>
+      </li>
+      <li class="job" id="job-opennet" data-id="opennet">
+        <div class="job-head">
+          <div class="job-meta"><span class="job-period">2024.03 – 2025.07</span><span class="job-dur">1 年 5 個月</span><span class="industry">線上娛樂平台</span><span class="match" aria-hidden="true"></span></div>
+          <h3><button class="job-toggle" aria-expanded="false" aria-controls="body-opennet">Data Analytics Engineer <span class="at">@ Opennet</span></button></h3>
+          <p class="job-sum">負責資料管線、BI 報表與詐欺偵測，支援 3,500 萬以上用戶規模的分析需求。</p>
+          <div class="job-foot">
+            <div class="results"><span>單季減少 USD 100K 損失</span><span>支援 35M+ 用戶分析</span><span>南非新市場資料上線</span></div>
+            <span class="more">展開 3 項細節</span>
+          </div>
+          <span class="chev" aria-hidden="true"></span>
+        </div>
+        <div class="job-body" id="body-opennet"><div class="job-inner">
+          <p class="job-intro">線上娛樂平台開發商（遊戲機制、BI、維運）。</p>
+          <div class="details"><div class="detail"><h4>新市場（南非）ETL 整合專案</h4><p>主導南非新市場上線的 ETL 整合專案，自行拆解工作項目，確保新國家資料與既有 BI 邏輯一致，並透過資料品質驗證與基礎設施設定，維持 BI 服務不中斷。</p></div><div class="detail"><h4>打假球（詐欺）偵測流程</h4><p>從資料中找出可疑模式（多名使用者在相近時間下注相似組合），建置結合 Slack 與 DAG 排程警示的偵測流程，將合規監控嵌入產品系統，單季減少 USD 100K 損失。</p></div><div class="detail"><h4>資料管線與儀表板</h4><p>以 Airflow 與 AWS（Redshift／RDS）設計並優化資料管線，支援 OKR、營運與顧客終身價值（LTV）儀表板，提升跨團隊資訊透明度。</p></div></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">SQL（MySQL、Hive、Trino）</span><span class="tag">Airflow</span><span class="tag">AWS（Redshift、RDS）</span><span class="tag">ETL／ELT 管線設計</span><span class="tag">資料品質驗證</span><span class="tag">Metabase</span><span class="tag">指標與儀表板設計</span><span class="tag">詐欺與異常偵測</span><span class="tag">線上平台詐欺偵測</span></div>
+        </div></div>
+      </li>
+      <li class="job" id="job-esun-ba" data-id="esun-ba">
+        <div class="job-head">
+          <div class="job-meta"><span class="job-period">2021.11 – 2024.03</span><span class="job-dur">2 年 5 個月</span><span class="industry">銀行</span><span class="match" aria-hidden="true"></span></div>
+          <h3><button class="job-toggle" aria-expanded="false" aria-controls="body-esun-ba">Business Analyst <span class="at">@ 玉山銀行 E.SUN Commercial Bank</span></button></h3>
+          <p class="job-sum">參與海外核心銀行系統轉換專案的規劃與執行，負責資料倉儲轉換的需求分析。</p>
+          <div class="job-foot">
+            <div class="results"><span>108 項資料需求分析</span><span>預估年省 NTD 1 億元維運成本</span><span>績效報表工作量減少 60%</span></div>
+            <span class="more">展開 5 項細節</span>
+          </div>
+          <span class="chev" aria-hidden="true"></span>
+        </div>
+        <div class="job-body" id="body-esun-ba"><div class="job-inner">
+          <p class="job-intro">由 Data Scientist 內部轉職，參與海外核心系統轉換專案。</p>
+          <div class="details"><div class="detail"><h4>資料倉儲轉換需求分析</h4><p>分析 108 項資料需求並遷移至集中式資料平台，確保資料倉儲順利轉換；預估每年節省新台幣 1 億元維運成本。</p></div><div class="detail"><h4>跨部門協作</h4><p>與 50 位以上業務與 IT 同仁協作，主動與利害關係人溝通，處理新核心系統與資料中台的整合問題。</p></div><div class="detail"><h4>資料血緣視覺化</h4><p>以 JavaScript 與 D3.js 製作資料倉儲血緣（lineage）Sankey 圖，協助團隊掌握資料相依關係與系統異動影響範圍。（見作品集 Ref3）</p></div><div class="detail"><h4>RPA 行政流程優化</h4><p>以 Python 開發 RPA 並包裝成 exe 執行檔，自動化行政作業流程。</p></div><div class="detail"><h4>業務績效 BI 報表自動化</h4><p>將原本以 Excel 人工蒐集數據的業務績效報表，改為 Tableau 自動產生，提升營運可視性並減少 60% 報表工作量。</p></div></div>
+          <div class="tags"><span class="tag">需求訪談</span><span class="tag">利害關係人管理</span><span class="tag">SQL（MySQL、Hive、Trino）</span><span class="tag">Tableau</span><span class="tag">指標與儀表板設計</span><span class="tag">RPA（Python）</span><span class="tag">JavaScript／D3.js</span><span class="tag">銀行資料倉儲與核心系統轉換</span><span class="tag">Scrum（PSM／PSPO）</span></div>
+        </div></div>
+      </li>
+      <li class="job" id="job-esun-ds" data-id="esun-ds">
+        <div class="job-head">
+          <div class="job-meta"><span class="job-period">2019.07 – 2021.11</span><span class="job-dur">2 年 5 個月</span><span class="industry">銀行</span><span class="match" aria-hidden="true"></span></div>
+          <h3><button class="job-toggle" aria-expanded="false" aria-controls="body-esun-ds">Data Scientist <span class="at">@ 玉山銀行 E.SUN Commercial Bank</span></button></h3>
+          <p class="job-sum">開發並維運正式環境的機器學習模型，支援行銷與風險評分，並推動內部資料分析與自動化教育訓練。</p>
+          <div class="job-foot">
+            <div class="results"><span>轉換率 1.9 倍</span><span>60% 客戶採用率</span><span>推薦系統離線點擊 +42%</span></div>
+            <span class="more">展開 5 項細節</span>
+          </div>
+          <span class="chev" aria-hidden="true"></span>
+        </div>
+        <div class="job-body" id="body-esun-ds"><div class="job-inner">
+          <p class="job-intro">負責機器學習模型開發與數位轉型相關專案。</p>
+          <div class="details"><div class="detail"><h4>獲客預測模型</h4><p>以 LightGBM 建立獲客預測模型，經 A/B 測試驗證，轉換率為傳統方法的 1.9 倍；並建置效能監控、自動再訓練與調校機制。（見作品集 Ref1）</p></div><div class="detail"><h4>投資組合再平衡系統</h4><p>參與以夏普值（Sharpe ratio）最佳化的投資組合再平衡系統，提供理專財務建議；客戶採用率達 60%，預估年營收新台幣 1 億元。</p></div><div class="detail"><h4>顧客輪廓分析</h4><p>與行銷團隊合作分析顧客輪廓，發現某產品關鍵的 20 天獲客窗口，提供行銷決策參考。</p></div><div class="detail"><h4>推薦系統</h4><p>實作協同過濾（Collaborative Filtering）推薦系統，離線評估網站點擊數提升 42%。（見作品集 Ref2）</p></div><div class="detail"><h4>內部教育訓練</h4><p>主辦 Python、RPA 工作坊（每場約 30 人）與部門推力理論（Nudge）講座（100+ 人），協助同仁建立資料素養與自動化能力。</p></div></div>
+          <div class="tags"><span class="tag">Python</span><span class="tag">SQL（MySQL、Hive、Trino）</span><span class="tag">LightGBM</span><span class="tag">預測模型</span><span class="tag">統計檢定</span><span class="tag">A/B 測試</span><span class="tag">推薦系統（協同過濾）</span><span class="tag">模型監控與再訓練</span><span class="tag">RPA（Python）</span><span class="tag">內部教育訓練</span></div>
+        </div></div>
+      </li></ol>
   </section>
 
   <section class="wrap section" id="portfolio">
     <div class="section-head">
       <h2 data-i18n="pfTitle">作品集</h2>
-      <div class="tabs" id="pfTabs" role="group"></div>
+      <div class="tabs" id="pfTabs" role="group" aria-label="作品集"><button class="tab on" aria-pressed="true" data-cat="all">全部</button><button class="tab" aria-pressed="false" data-cat="ml">專案與機器學習</button><button class="tab" aria-pressed="false" data-cat="viz">視覺化</button><button class="tab" aria-pressed="false" data-cat="ws">工作坊</button></div>
     </div>
-    <div class="cards" id="pfCards"></div>
+    <div class="cards" id="pfCards">
+      <a class="card" href="https://drive.google.com/file/d/1D5LhoMamfdwvVnsv8O4gSoZv9PnhibtD/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="card-ref">Ref1 · 專案與機器學習</span>
+        <h3>顧客分群與行銷最佳化</h3><p>分析顧客人口特徵、瀏覽與交易行為，建立預測模型最佳化受眾投放，A/B 測試轉換率為基準方法的 1.9 倍。</p><span class="card-more">在 Google Drive 開啟 →</span>
+      </a>
+      <a class="card" href="https://drive.google.com/file/d/1yGiZ8J0o3bZa5uD1iREtmxPKZ5cgrz7v/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="card-ref">Ref2 · 專案與機器學習</span>
+        <h3>協同過濾推薦系統</h3><p>實作協同過濾推薦系統提升商品探索，離線評估網站點擊數提升 42%。</p><span class="card-more">在 Google Drive 開啟 →</span>
+      </a>
+      <a class="card" href="https://drive.google.com/file/d/1vs_44O8m32M-Qx2qWPpAPBz7qjWmgLtq/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="card-ref">Ref3 · 視覺化</span>
+        <h3>玉山資料倉儲血緣圖（D3.js）</h3><p>以 D3.js Sankey 圖呈現資料倉儲端到端血緣，協助快速辨識 schema 異動影響範圍。</p><span class="card-more">在 Google Drive 開啟 →</span>
+      </a>
+      <a class="card" href="https://drive.google.com/file/d/1A5EMbNzbKxeSt8HlJyvViLaH7qm9O3zZ/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="card-ref">Ref4 · 視覺化</span>
+        <h3>Tableau 顧客推薦 KPI 儀表板</h3><p>第一頁為 Tableau 互動儀表板示範；第二頁為玉山銀行實際專案：視覺化推薦（referral）KPI 並分析後續顧客行為。</p><span class="card-more">在 Google Drive 開啟 →</span>
+      </a>
+      <a class="card" href="https://drive.google.com/file/d/1Q7CS7apyVd2fFjI_AOx2Rs_b2fjZzzVV/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="card-ref">Ref5 · 視覺化</span>
+        <h3>美國參議員意識形態分析</h3><p>以分群與視覺化分析參議院投票紀錄，將參議員依投票模式歸納為不同意識形態群組。</p><span class="card-more">在 Google Drive 開啟 →</span>
+      </a>
+      <a class="card" href="https://drive.google.com/file/d/16BZ_gDMfhnVmpWh8cMdpt8DkoeyJsVPJ/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="card-ref">Ref6 · 工作坊</span>
+        <h3>部門講座：推力理論與行為改變</h3><p>百人以上部門講座，介紹 Nudge 理論於決策設計與數位轉型的應用。</p><span class="card-more">在 Google Drive 開啟 →</span>
+      </a>
+      <a class="card" href="https://drive.google.com/file/d/1pi_isUAmY0_miUR3sShkmnpX41ctiCk-/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="card-ref">Ref7 · 工作坊</span>
+        <h3>RPA &amp; Python 工作坊（一）</h3><p>Python 基礎與簡易 RPA 開發，每場約 30 位跨部門同仁參加。</p><span class="card-more">在 Google Drive 開啟 →</span>
+      </a>
+      <a class="card" href="https://drive.google.com/file/d/1PFOuIg9dmW87c9CJnBjAXgoC68q-tY5X/view?usp=drive_link" target="_blank" rel="noopener">
+        <span class="card-ref">Ref8 · 工作坊</span>
+        <h3>RPA &amp; Python 工作坊（二）</h3><p>延續課程，協助同仁建立資料素養並動手打造自動化小工具。</p><span class="card-more">在 Google Drive 開啟 →</span>
+      </a></div>
   </section>
 
   <section class="wrap section" id="education">
     <div class="section-head"><h2 data-i18n="eduTitle">學歷 · 證照 · 語言</h2></div>
     <div class="grid3">
-      <div class="panel"><h3 data-i18n="edu">學歷</h3><div id="edu"></div></div>
-      <div class="panel"><h3 data-i18n="certs">證照</h3><div id="certs"></div></div>
-      <div class="panel"><h3 data-i18n="langs">語言</h3><div id="langs"></div></div>
+      <div class="panel"><h3 data-i18n="edu">學歷</h3><div id="edu"><div class="row"><strong>國立臺灣大學・心理學系 碩士</strong><span class="muted-t">2015.09 – 2018.04</span><p>論文：從臉型特徵預測性格、價值觀與朋友關係</p></div><div class="row"><strong>國立臺灣大學・心理學系 學士</strong><span class="muted-t">2011.09 – 2015.06</span></div></div></div>
+      <div class="panel"><h3 data-i18n="certs">證照</h3><div id="certs"><div class="row"><strong>Professional Scrum Master I (PSM I)</strong><span class="muted-t">Scrum.org · 2020.02</span>
+      <p><a href="https://scrum.org/certificates/510007" target="_blank" rel="noopener">線上驗證</a>　<a href="Professional%20Scrum%20Master%20I.pdf" target="_blank">證書 PDF</a></p></div><div class="row"><strong>Professional Scrum Product Owner I (PSPO I)</strong><span class="muted-t">Scrum.org · 2020.02</span>
+      <p><a href="https://scrum.org/certificates/510532" target="_blank" rel="noopener">線上驗證</a>　<a href="Professional%20Scrum%20Product%20Owner%20I.pdf" target="_blank">證書 PDF</a></p></div></div></div>
+      <div class="panel"><h3 data-i18n="langs">語言</h3><div id="langs"><div class="row"><strong>中文</strong><span class="muted-t">母語</span></div><div class="row"><strong>台語</strong><span class="muted-t">流利</span></div><div class="row"><strong>英文</strong><span class="muted-t">專業工作能力（TOEFL iBT 95/120）</span></div></div></div>
     </div>
   </section>
 

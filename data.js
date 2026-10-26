@@ -76,7 +76,7 @@ window.RESUME = {
       { name: "Professional Scrum Product Owner I (PSPO I)", date: "2020.02", url: "https://scrum.org/certificates/510532", file: "Professional Scrum Product Owner I.pdf" }
     ],
     // 訪客統計：到 goatcounter.com 註冊後，把代碼（例如 "guanjipu"）填在這裡即可啟用；留空則不載入
-    goatcounter: ""
+    goatcounter: "guanjipu"
   },
 
   zh: {
@@ -105,9 +105,9 @@ window.RESUME = {
       updated: d => `最後更新：${d}`,
       printNote: "線上互動版：harryputaiwan.github.io"
     },
-    lead: "擁有 7 年以上資料分析、資料工程與機器學習經驗，橫跨銀行、金融科技 SaaS、線上平台與電商產業。擅長從需求訪談到資料管線、模型與 BI 報表的端到端交付，並持續將 AI Agent 與 MCP 應用於日常工作流程。",
+    lead: "擁有 7 年以上資料分析、資料工程與機器學習經驗，橫跨銀行、金融科技 SaaS、線上平台與電商產業。擅長從需求訪談到資料管線、模型與 BI 報表的端到端交付，並將 AI Agent 與 MCP 導入日常工作流程。",
     highlights: [
-      ["端到端資料解決方案", "設計 ETL/ELT 管線、預測模型、詐欺偵測與互動式 BI 報表（Python、SQL、Airflow、AWS Redshift／RDS、BI 工具）"],
+      ["端到端資料解決方案", "設計 ETL／ELT 管線、預測模型、詐欺偵測與互動式 BI 報表（Python、SQL、Airflow、AWS Redshift／RDS、BI 工具）"],
       ["AI 工具實務應用", "運用 AI Agent 與 MCP 加速知識檢索、報告產出與程式開發"],
       ["商業與 IT 的橋樑", "需求訪談、利害關係人溝通，參與 50+ 人跨部門大型系統轉換專案"]
     ],
@@ -125,12 +125,12 @@ window.RESUME = {
         company: "Coupang",
         period: "2026.01 – 2026.08",
         intro: "電商平台。支援客服部門與高階主管的資料需求。",
-        summary: "提供客服部門與主管端到端資料方案：SQL 查詢、根因分析（RCA）臨時需求報表、即時營運報表、互動式儀表板、Chrome Extension 與自動化資料管線。",
+        summary: "為客服部門與主管提供端到端資料方案：SQL 查詢、根因分析（RCA）臨時需求報表、即時營運報表、互動式儀表板、Chrome Extension 與自動化資料管線。",
         details: [
-          { h: "客服查詢資料解決方案", p: "提供 Chrome Extension、即時營運報表等資料工具，解決客服部門的資料查詢問題：整合跨系統資料、串接查詢 API 並支援大量批次查詢，讓營運專員能快速完成業務流程。" },
-          { h: "品牌審核規則（Brand Gating Rules）設計", p: "商家上架品牌商品需經審核。以 Python 搭配 AI 建立規則產製流程，大量產生 gating regex 規則，並以歷史資料驗證 Recall。相較人工撰寫（缺少完整 Recall 驗證、容易寫錯、條件過嚴或過寬），規則品質更穩定；共處理約 500 個品牌，每個品牌約省 5 分鐘，累計約 40 小時。" },
-          { h: "AI Agent 與 MCP 的實務應用", p: "使用 Windsurf（搭配工作 skills）、Claude Code，以及內部工具——串接內部 Wiki 的 MCP（彙整文件產出知識報告）、Slack 知識問答機器人、由歷史 SQL 萃取商業知識的「資料表使用說明」——加速知識檢索、程式開發與 BI 報表製作。" },
-          { h: "根因分析報告加速", p: "原本需要半天到一天才能完成的根因分析報告，運用 AI 工具後約 2 小時即可產出第一版。" }
+          { h: "客服查詢資料解決方案", p: "提供 Chrome Extension、即時營運報表等資料工具，解決客服部門的查詢需求：整合跨系統資料、串接查詢 API、支援大量批次查詢，讓營運專員快速完成業務流程。" },
+          { h: "品牌審核規則（Brand Gating Rules）設計", p: "商家上架品牌商品需經審核。以 Python 搭配 AI 建立規則產製流程，大量產生 gating regex 規則，並用歷史資料驗證 Recall。相較人工撰寫（缺乏完整驗證、容易出錯、條件過嚴或過寬），規則品質更穩定；共處理約 500 個品牌，每個約省 5 分鐘，累計約 40 小時。" },
+          { h: "AI Agent 與 MCP 的實務應用", p: "日常以 Windsurf（搭配工作 skills）與 Claude Code 開發，並運用內部工具加速知識檢索、程式開發與 BI 報表製作，包括：串接內部 Wiki 的 MCP（彙整文件產出知識報告）、Slack 知識問答機器人，以及從歷史 SQL 萃取商業知識的「資料表使用說明」。" },
+          { h: "根因分析報告加速", p: "運用 AI 工具後，原需半天到一天的根因分析報告，約 2 小時即可產出第一版。" }
         ],
         results: ["根因報告初版：半天～1 天 → 約 2 小時", "約 500 個品牌規則，省下約 40 小時"]
       },
@@ -140,10 +140,10 @@ window.RESUME = {
         company: "Tookitaki",
         period: "2025.07 – 2026.01",
         intro: "反洗錢（AML）合規 SaaS 公司。客戶為菲律賓、新加坡、馬來西亞、澳洲、紐西蘭等地金融機構。",
-        summary: "於客戶服務端對接金融機構，協助設定大型合規 SaaS 解決方案，使產品行為符合 AML 態樣、名單篩檢與各機構需求。",
+        summary: "在客戶服務團隊對接金融機構，協助設定大型合規 SaaS 方案，使產品行為符合 AML 態樣、名單篩檢與各機構需求。",
         details: [
-          { h: "客戶問題技術排解", p: "企業客戶在產品使用上遇到問題時，運用 AI 協助剖析反洗錢系統，釐清資料管線與產品行為並回覆客戶；排查範圍涵蓋 Hadoop、Spark、Kafka、Elasticsearch 與 AWS 上的工作流程。" },
-          { h: "參數設定建議", p: "依客戶特性（風險偏好），以及分析警示（alert）的 true positive／false positive 狀況，建議產品參數設定。" },
+          { h: "客戶問題技術排解", p: "客戶遇到產品問題時，運用 AI 剖析反洗錢系統、釐清資料管線與產品行為並回覆客戶；排查範圍涵蓋 Hadoop、Spark、Kafka、Elasticsearch 與 AWS 上的工作流程。" },
+          { h: "參數設定建議", p: "依客戶的風險偏好，並分析警示（alert）的 true positive／false positive 狀況，建議產品參數設定。" },
           { h: "分析流程自動化", p: "以 Python 與 SQL 自動化分析流程，每位客戶每季可減少 1.5 天的警示資料處理時間。" }
         ],
         results: ["每客戶每季節省 1.5 天警示資料處理時間"]
@@ -156,8 +156,8 @@ window.RESUME = {
         intro: "線上娛樂平台開發商（遊戲機制、BI、維運）。",
         summary: "負責資料管線、BI 報表與詐欺偵測，支援 3,500 萬以上用戶規模的分析需求。",
         details: [
-          { h: "新市場（南非）ETL 整合專案", p: "主導南非新市場上線的 ETL 整合專案規劃與執行，自行拆解工作項目，確保新國家資料與既有 BI 邏輯一致；並透過資料品質驗證與基礎設施設定，維持 BI 服務不中斷。" },
-          { h: "打假球（詐欺）偵測流程", p: "以資料找出可疑行為模式——多名使用者在相近時間點下注相似組合——建置整合 Slack 與 DAG 排程警示的偵測流程，將合規監控嵌入產品系統，單季減少 USD 100K 損失。" },
+          { h: "新市場（南非）ETL 整合專案", p: "主導南非新市場上線的 ETL 整合專案，自行拆解工作項目，確保新國家資料與既有 BI 邏輯一致，並透過資料品質驗證與基礎設施設定，維持 BI 服務不中斷。" },
+          { h: "打假球（詐欺）偵測流程", p: "從資料中找出可疑模式（多名使用者在相近時間下注相似組合），建置結合 Slack 與 DAG 排程警示的偵測流程，將合規監控嵌入產品系統，單季減少 USD 100K 損失。" },
           { h: "資料管線與儀表板", p: "以 Airflow 與 AWS（Redshift／RDS）設計並優化資料管線，支援 OKR、營運與顧客終身價值（LTV）儀表板，提升跨團隊資訊透明度。" }
         ],
         results: ["單季減少 USD 100K 損失", "支援 35M+ 用戶分析", "南非新市場資料上線"]
@@ -170,11 +170,11 @@ window.RESUME = {
         intro: "由 Data Scientist 內部轉職，參與海外核心系統轉換專案。",
         summary: "參與海外核心銀行系統轉換專案的規劃與執行，負責資料倉儲轉換的需求分析。",
         details: [
-          { h: "資料倉儲轉換需求分析", p: "分析 108 項資料需求並遷移至集中式資料平台，確保資料倉儲順利轉換，預估每年可節省新台幣 1 億元維運成本。" },
+          { h: "資料倉儲轉換需求分析", p: "分析 108 項資料需求並遷移至集中式資料平台，確保資料倉儲順利轉換；預估每年節省新台幣 1 億元維運成本。" },
           { h: "跨部門協作", p: "與 50 位以上業務與 IT 同仁協作，主動與利害關係人溝通，處理新核心系統與資料中台的整合問題。" },
           { h: "資料血緣視覺化", p: "以 JavaScript 與 D3.js 製作資料倉儲血緣（lineage）Sankey 圖，協助團隊掌握資料相依關係與系統異動影響範圍。（見作品集 Ref3）" },
           { h: "RPA 行政流程優化", p: "以 Python 開發 RPA 並包裝成 exe 執行檔，自動化行政作業流程。" },
-          { h: "業務績效 BI 報表自動化", p: "將原本以 Excel、人工蒐集數據製作的業務績效報表，改為 Tableau 自動產生，提升營運可視性並減少 60% 報表工作量。" }
+          { h: "業務績效 BI 報表自動化", p: "將原本以 Excel 人工蒐集數據的業務績效報表，改為 Tableau 自動產生，提升營運可視性並減少 60% 報表工作量。" }
         ],
         results: ["108 項資料需求分析", "預估年省 NTD 1 億元維運成本", "績效報表工作量減少 60%"]
       },
@@ -184,10 +184,10 @@ window.RESUME = {
         company: "玉山銀行 E.SUN Commercial Bank",
         period: "2019.07 – 2021.11",
         intro: "負責機器學習模型開發與數位轉型相關專案。",
-        summary: "開發並維運正式環境的機器學習模型，支援行銷與風險評分；並推動內部數據與自動化教育訓練。",
+        summary: "開發並維運正式環境的機器學習模型，支援行銷與風險評分，並推動內部資料分析與自動化教育訓練。",
         details: [
-          { h: "獲客預測模型", p: "以 LightGBM 建立顧客獲客預測模型，透過 A/B 測試驗證，轉換率為傳統方法的 1.9 倍。模型包含效能監控、自動再訓練與調校機制。（見作品集 Ref1）" },
-          { h: "投資組合再平衡系統", p: "參與以夏普值（Sharpe ratio）進行最佳化的投資組合再平衡系統，提供理專財務建議，達到 60% 客戶採用率，預估年營收新台幣 1 億元。" },
+          { h: "獲客預測模型", p: "以 LightGBM 建立獲客預測模型，經 A/B 測試驗證，轉換率為傳統方法的 1.9 倍；並建置效能監控、自動再訓練與調校機制。（見作品集 Ref1）" },
+          { h: "投資組合再平衡系統", p: "參與以夏普值（Sharpe ratio）最佳化的投資組合再平衡系統，提供理專財務建議；客戶採用率達 60%，預估年營收新台幣 1 億元。" },
           { h: "顧客輪廓分析", p: "與行銷團隊合作分析顧客輪廓，發現某產品關鍵的 20 天獲客窗口，提供行銷決策參考。" },
           { h: "推薦系統", p: "實作協同過濾（Collaborative Filtering）推薦系統，離線評估網站點擊數提升 42%。（見作品集 Ref2）" },
           { h: "內部教育訓練", p: "主辦 Python、RPA 工作坊（每場約 30 人）與部門推力理論（Nudge）講座（100+ 人），協助同仁建立資料素養與自動化能力。" }
@@ -242,7 +242,7 @@ window.RESUME = {
       updated: d => `Last updated: ${d}`,
       printNote: "Interactive version: harryputaiwan.github.io"
     },
-    lead: "Data professional with 7+ years of experience across data analytics, data engineering and machine learning, spanning banking, fintech SaaS, online platforms and e-commerce. I deliver end to end — from requirements gathering to data pipelines, models and BI dashboards — and apply AI agents and MCP to everyday workflows.",
+    lead: "Data professional with 7+ years of experience across data analytics, data engineering and machine learning, spanning banking, fintech SaaS, online platforms and e-commerce. I deliver end to end — from requirements gathering to data pipelines, models and BI dashboards — and bring AI agents and MCP into everyday workflows.",
     highlights: [
       ["End-to-end data solutions", "ETL/ELT pipelines, predictive models, fraud detection and interactive BI dashboards (Python, SQL, Airflow, AWS Redshift/RDS, BI tools)"],
       ["Hands-on AI tooling", "Using AI agents and MCP to speed up knowledge retrieval, reporting and code development"],
@@ -253,7 +253,7 @@ window.RESUME = {
       { value: 7, suffix: "+ yrs", label: "Experience in data roles" },
       { value: 100, prefix: "USD ", suffix: "K", label: "Saved in one quarter by fraud detection" },
       { value: 35, suffix: "M+", label: "Users supported by my data pipelines" },
-      { value: 2, prefix: "~", suffix: " hrs", label: "To a first-draft root-cause report" }
+      { value: 2, prefix: "~", suffix: " hrs", label: "Time to a first-draft RCA report" }
     ],
     jobs: [
       {
@@ -266,8 +266,8 @@ window.RESUME = {
         details: [
           { h: "Data tools for Customer Service", p: "Built data tools such as Chrome extensions and real-time operations reports to solve Customer Service data lookups — integrating cross-system data, connecting to query APIs and supporting large batch queries so operations specialists could complete their workflows quickly." },
           { h: "Brand gating rule design", p: "Sellers listing branded products must pass a review. Built a Python + AI workflow that generated gating regex rules at scale and validated their recall against historical data. Compared with hand-written rules (no full recall check, error-prone, often too strict or too loose), rule quality was more consistent; covered about 500 brands at roughly 5 minutes saved per brand — about 40 hours in total." },
-          { h: "Applying AI agents and MCP", p: "Used Windsurf (with work skills), Claude Code and internal tools — an MCP connected to the internal wiki that compiles documents into knowledge reports, a Slack Q&A bot, and table usage guides that extract business knowledge from historical SQL — to speed up knowledge retrieval, code development and BI reporting." },
-          { h: "Faster root-cause reports", p: "Root-cause analysis reports that used to take half a day to a full day now reach a first draft in about 2 hours with AI tools." }
+          { h: "Applying AI agents and MCP", p: "Developed daily with Windsurf (with work skills) and Claude Code, and used internal tools to speed up knowledge retrieval, coding and BI reporting: an MCP connected to the internal wiki that compiles documents into knowledge reports, a Slack Q&A bot, and table usage guides that extract business knowledge from historical SQL." },
+          { h: "Faster root-cause reports", p: "With AI tools, root-cause analysis reports that took half a day to a full day now reach a first draft in about 2 hours." }
         ],
         results: ["RCA first draft: ½–1 day → ~2 hrs", "~500 brand rules, ~40 hrs saved"]
       },
@@ -294,7 +294,7 @@ window.RESUME = {
         summary: "Owned data pipelines, BI reporting and fraud detection, supporting analytics for 35M+ users.",
         details: [
           { h: "New-market (South Africa) ETL integration", p: "Led the planning and execution of the ETL integration for the South Africa launch, defining work items independently to keep new-country data consistent with existing BI logic, and keeping BI running through data quality validation and infrastructure setup." },
-          { h: "Match-fixing (fraud) detection", p: "Identified suspicious patterns in the data — multiple users placing similar bet combinations at nearly the same time — and built a detection workflow with Slack and DAG-scheduled alerts, embedding compliance monitoring into the product and saving USD 100K in a single quarter." },
+          { h: "Match-fixing (fraud) detection", p: "Identified suspicious patterns in the data (multiple users placing similar bets at nearly the same time) and built a detection workflow with Slack and DAG-scheduled alerts, embedding compliance monitoring into the product and saving USD 100K in a single quarter." },
           { h: "Pipelines and dashboards", p: "Designed and optimized pipelines with Airflow and AWS (Redshift/RDS) powering OKR, operations and customer lifetime value (LTV) dashboards, improving cross-team visibility." }
         ],
         results: ["USD 100K saved in one quarter", "Analytics for 35M+ users", "South Africa market data launched"]
@@ -321,9 +321,9 @@ window.RESUME = {
         company: "E.SUN Commercial Bank",
         period: "2019.07 – 2021.11",
         intro: "Machine learning model development and digital transformation projects.",
-        summary: "Built and maintained production machine learning models for marketing and risk scoring, and ran internal data and automation training.",
+        summary: "Built and maintained production machine learning models for marketing and risk scoring, and led internal data and automation training.",
         details: [
-          { h: "Customer acquisition model", p: "Built a LightGBM customer acquisition model; A/B testing showed a 1.9x conversion rate versus the traditional approach. Included performance monitoring, auto-retraining and tuning. (See portfolio Ref1)" },
+          { h: "Customer acquisition model", p: "Built a LightGBM customer acquisition model; A/B testing showed a 1.9x conversion rate versus the traditional approach. Set up performance monitoring, auto-retraining and tuning. (See portfolio Ref1)" },
           { h: "Portfolio rebalancing system", p: "Contributed to a portfolio rebalancing system optimized on the Sharpe ratio, providing financial guidance to advisors; reached 60% client adoption with an estimated NTD 100 million in annual revenue." },
           { h: "Customer profiling", p: "Partnered with marketing to analyze customer profiles, uncovering a key 20-day acquisition window for a product to inform marketing decisions." },
           { h: "Recommender system", p: "Implemented a collaborative filtering recommender; offline evaluation showed a 42% increase in website clicks. (See portfolio Ref2)" },
