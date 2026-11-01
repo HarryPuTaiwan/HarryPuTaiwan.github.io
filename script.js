@@ -207,8 +207,8 @@
     $$(".kpi-num").forEach(el => { el.dataset.done = "1"; el.textContent = fmt(L.kpis[el.dataset.i], L.kpis[el.dataset.i].value); });
   });
 
-  // 訪客統計（填入 GoatCounter 代碼後才會載入）
-  if (S.goatcounter) {
+  // 訪客統計（填入 GoatCounter 代碼後才會載入；被簡報內嵌時不計）
+  if (S.goatcounter && window.top === window.self) {
     const s = document.createElement("script");
     s.async = true;
     s.src = "https://gc.zgo.at/count.js";

@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>蒲冠吉｜自我介紹與企劃提案</title>
+<meta name="description" content="蒲冠吉的課程簡報：自我介紹與三個企劃提案方向，歡迎一起組隊。">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+:root {
+  --bg: #f7f8fa; --surface: #ffffff; --text: #1c2430; --muted: #5d6878;
+  --line: #e2e6ec; --accent: #1f4e8c; --accent-soft: #e8eef7; --good: #1d7a55;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; overflow: hidden; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  line-height: 1.6;
+}
+a { color: var(--accent); }
+[hidden] { display: none !important; }
+
+/* Slides */
+.deck { display: flex; height: 100%; transition: transform .45s cubic-bezier(.4, 0, .2, 1); }
+.slide {
+  flex: none; width: 100vw; height: 100%; overflow-y: auto;
+  padding: clamp(24px, 6vh, 72px) clamp(20px, 7vw, 120px) 72px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.eyebrow { color: var(--accent); font-weight: 600; letter-spacing: .06em; margin: 0 0 10px; font-size: clamp(.9rem, 1.6vw, 1.15rem); }
+h1 { font-size: clamp(2.2rem, 6vw, 4.4rem); line-height: 1.2; margin: 0 0 12px; }
+h2 { font-size: clamp(1.7rem, 4vw, 3rem); line-height: 1.25; margin: 0 0 10px; }
+h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted); font-weight: 600; letter-spacing: .04em; }
+.lead { font-size: clamp(1.05rem, 2.2vw, 1.6rem); color: var(--muted); margin: 0 0 28px; }
+.sub { font-size: clamp(1.1rem, 2.4vw, 1.8rem); color: var(--muted); margin: 0; }
+
+/* Cover */
+.cover { display: grid; grid-template-columns: 1fr auto; gap: clamp(24px, 6vw, 96px); align-items: center; }
+.qr { text-align: center; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 18px 18px 12px; box-shadow: 0 4px 24px rgba(16, 24, 40, .06); }
+.qr img { width: clamp(180px, 26vw, 340px); height: auto; display: block; }
+.qr p { margin: 10px 0 0; font-weight: 600; font-size: clamp(.95rem, 1.6vw, 1.2rem); }
+.qr small { display: block; color: var(--muted); font-weight: 400; }
+.pill { display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 18px; color: var(--muted); font-size: clamp(.9rem, 1.5vw, 1.1rem); }
+.dot { width: 9px; height: 9px; border-radius: 50%; background: var(--good); flex: none; }
+
+/* Resume embed */
+.slide.embed { justify-content: flex-start; padding-top: 20px; padding-bottom: 64px; }
+.embed-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+.embed-head h2 { margin: 0; font-size: clamp(1.3rem, 2.6vw, 2rem); }
+.embed-head a { white-space: nowrap; }
+.frame { flex: 1; min-height: 0; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: 0 4px 24px rgba(16, 24, 40, .06); }
+.frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+/* Proposals */
+.tag { align-self: flex-start; display: inline-block; background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 3px 14px; font-weight: 600; font-size: clamp(.85rem, 1.4vw, 1rem); margin-bottom: 14px; }
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 3vw, 40px); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: clamp(16px, 2.4vw, 28px); }
+.card ul { margin: 0; padding-left: 1.2em; font-size: clamp(1rem, 1.9vw, 1.4rem); }
+.card li + li { margin-top: 8px; }
+.card p { margin: 0; font-size: clamp(.95rem, 1.6vw, 1.15rem); color: var(--muted); }
+.card .name { font-weight: 700; color: var(--text); font-size: clamp(1.05rem, 1.9vw, 1.35rem); margin-bottom: 6px; }
+.card .name a { text-decoration: none; }
+.card .name a:hover { text-decoration: underline; }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chips span { background: var(--accent-soft); color: var(--accent); border-radius: 8px; padding: 8px 14px; font-weight: 600; font-size: clamp(.95rem, 1.8vw, 1.3rem); }
+.examples { display: grid; gap: 14px; }
+.note { margin-top: 10px; font-size: clamp(.85rem, 1.4vw, 1rem); color: var(--muted); }
+.grid3 { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(12px, 1.6vw, 20px); }
+.grid3 .card { padding: clamp(14px, 1.6vw, 22px); }
+.grid3 h3 { color: var(--text); margin-bottom: 8px; }
+.grid3 h3 small { color: var(--muted); font-weight: 400; font-size: .75em; }
+.grid3 ul { font-size: clamp(.95rem, 1.35vw, 1.15rem); }
+.grid3 li + li { margin-top: 4px; }
+.grid3 .chips span { font-size: clamp(.9rem, 1.3vw, 1.1rem); padding: 6px 12px; }
+.grid3 .examples { gap: 8px; }
+
+/* Easter egg */
+.big { font-size: clamp(4rem, 14vw, 10rem); font-weight: 800; color: var(--accent); line-height: 1; margin: 8px 0 4px; font-variant-numeric: tabular-nums; }
+.btn { display: inline-flex; align-items: center; border: 1px solid var(--accent); background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-size: clamp(1rem, 1.8vw, 1.25rem); font-weight: 600; }
+.btn:hover { filter: brightness(1.1); }
+.btn.line { background: var(--surface); color: var(--accent); }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+/* Controls */
+.bar { position: fixed; left: 0; right: 0; bottom: 0; height: 52px; display: flex; align-items: center; gap: 12px; padding: 0 16px; background: color-mix(in srgb, var(--bg) 90%, transparent); backdrop-filter: blur(6px); border-top: 1px solid var(--line); z-index: 5; }
+.bar button { background: var(--surface); border: 1px solid var(--line); color: var(--text); border-radius: 8px; width: 40px; height: 34px; font-size: 1.1rem; cursor: pointer; }
+.bar button:hover { border-color: var(--accent); color: var(--accent); }
+.bar button:disabled { opacity: .35; cursor: default; }
+.progress { flex: 1; height: 4px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.progress i { display: block; height: 100%; background: var(--accent); width: 0; transition: width .45s; }
+.count { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; min-width: 3.2em; text-align: right; }
+.hint { color: var(--muted); font-size: .85rem; }
+
+@media (max-width: 760px) {
+  .cover, .cols, .grid3 { grid-template-columns: 1fr; }
+  .qr { justify-self: start; }
+  .hint { display: none; }
+  .slide { justify-content: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1. 首頁 -->
+  <section class="slide" aria-label="首頁">
+    <div class="cover">
+      <div>
+        <p class="eyebrow">自我介紹 · 企劃提案 · 尋找組員</p>
+        <h1>蒲冠吉 Guan-Ji Pu</h1>
+        <p class="sub">資料分析 · 資料工程 · AI 應用</p>
+      </div>
+      <div class="qr">
+        <img src="qr.png" alt="履歷網站 QR Code">
+        <p>掃描看我的履歷<small>harryputaiwan.github.io</small></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. 履歷（內嵌） -->
+  <section class="slide embed" aria-label="履歷">
+    <div class="embed-head">
+      <h2>我的履歷</h2>
+      <a href="https://harryputaiwan.github.io/" target="_blank" rel="noopener">開新分頁 ↗</a>
+    </div>
+    <div class="frame"><iframe id="resume" src="https://harryputaiwan.github.io/" title="蒲冠吉的履歷"></iframe></div>
+  </section>
+
+  <!-- 3. 提案一 -->
+  <section class="slide" aria-label="提案一">
+    <span class="tag">提案 1 / 3</span>
+    <h2>AI BI：企業內部的 AI 加速器</h2>
+    <p class="lead">讓同仁用「問的」、用「說的」，就能查資料、看報表。</p>
+    <div class="grid3">
+      <div class="card">
+        <h3>😣 痛點</h3>
+        <ul>
+          <li>要一個數字，得排隊等 BI／資料團隊</li>
+          <li>文件與指標定義散落各處，找半天</li>
+          <li>把公司資料貼到公開 AI，有外洩風險</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>💡 解法（MVP）</h3>
+        <ul>
+          <li><b>Ask Me Anything Bot</b>：用 RAG 回答內部文件與指標定義</li>
+          <li><b>Speech to BI</b>：語音／自然語言 → SQL → 圖表</li>
+          <li>以範例資料庫（模擬企業資料）展示</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎯 成果展示</h3>
+        <ul>
+          <li>Demo：問「上個月各品類營收？」→ 自動出圖</li>
+          <li>驗收：回答正確率、回應時間</li>
+          <li>權限測試：不同角色只看得到該看的資料</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🛠 主要工作</h3>
+        <div class="chips"><span>RAG</span><span>MCP</span><span>範例資料庫</span><span>權限管理</span><span>效能</span><span>資安</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 提案二 -->
+  <section class="slide" aria-label="提案二">
+    <span class="tag">提案 2 / 3</span>
+    <h2>可商業化的雲端服務</h2>
+    <p class="lead">鎖定一個產業的真實痛點，做出客戶願意付費的 SaaS。</p>
+    <div class="grid3">
+      <div class="card">
+        <h3>😣 痛點</h3>
+        <ul>
+          <li>許多中小型店家、事務所仍靠 LINE、紙本、Excel 處理預約與客服</li>
+          <li>人力有限，重複性工作佔掉大量時間</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>💡 做法</h3>
+        <ul>
+          <li>訪談 5–10 位目標客戶，挑出最痛的一件事</li>
+          <li>做出 MVP（例如 LINE 預約＋AI 客服）</li>
+          <li>找試用客戶，依回饋迭代</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>📌 參考案例 <small>（市面產品，非本人作品）</small></h3>
+        <div class="examples">
+          <p><a href="https://www.smartclinic.tw/#testimonials" target="_blank" rel="noopener"><b>診所小幫手</b></a>：治療所的預約、個案紀錄、營運報表、AI 客服</p>
+          <p><a href="https://caselight.tw/#features" target="_blank" rel="noopener"><b>CaseLight</b></a>：律師事務所的 AI 受案，自動整理案情摘要</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🛠 主要工作</h3>
+        <div class="chips"><span>需求訪談</span><span>開發</span><span>市場導入</span></div>
+        <p class="note">驗證指標：訪談數、試用客戶數、付費意願</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. 提案三 -->
+  <section class="slide" aria-label="提案三">
+    <span class="tag">提案 3 / 3</span>
+    <h2>台股交易：撈錢？賠錢？</h2>
+    <p class="lead">用資料驗證交易想法：先回測、再模擬，最後才小額實單。</p>
+    <div class="grid3">
+      <div class="card">
+        <h3>😣 問題</h3>
+        <ul>
+          <li>憑感覺交易，很難知道策略到底有沒有用</li>
+          <li>沒算手續費、稅與滑價，回測容易過度樂觀</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>💡 流程</h3>
+        <ul>
+          <li>券商 API 取得行情與歷史資料</li>
+          <li>研究策略 → 回測（含交易成本）</li>
+          <li>模擬交易 → 小額實單</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🎯 成果展示</h3>
+        <ul>
+          <li>回測報告：報酬率、最大回撤、勝率</li>
+          <li>自動交易系統 Demo</li>
+          <li>風控：停損、部位上限、交易紀錄</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>🛠 主要工作</h3>
+        <div class="chips"><span>券商 API</span><span>研究策略</span><span>回測</span><span>設計交易系統</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. 小彩蛋 -->
+  <section class="slide" aria-label="小彩蛋">
+    <span class="tag">🥚 小彩蛋</span>
+    <h2>有多少人看過我的履歷？</h2>
+    <div class="big" id="counterNum">…</div>
+    <p class="sub">履歷瀏覽 · GoatCounter 統計</p>
+    <p class="lead" style="margin-top:20px">剛剛掃 QR Code 的你，也被算進去了 👀</p>
+    <div class="actions">
+      <a class="btn" href="https://guanjipu.goatcounter.com" target="_blank" rel="noopener">打開 GoatCounter Dashboard ↗</a>
+    </div>
+  </section>
+
+  <!-- 7. 結尾 -->
+  <section class="slide" aria-label="一起組隊">
+    <div class="cover">
+      <div>
+        <p class="eyebrow">謝謝聆聽</p>
+        <h1>一起組隊吧！</h1>
+        <p class="sub">對任何一個提案有興趣，下課來找我聊聊。</p>
+        <div class="actions">
+          <a class="btn" href="https://www.linkedin.com/in/guan-ji-pu" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn line" href="mailto:pontussecret@gmail.com">pontussecret@gmail.com</a>
+        </div>
+      </div>
+      <div class="qr">
+        <img src="qr.png" alt="履歷網站 QR Code">
+        <p>掃描看我的履歷<small>harryputaiwan.github.io</small></p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="bar">
+  <button id="prev" aria-label="上一頁">‹</button>
+  <button id="next" aria-label="下一頁">›</button>
+  <div class="progress"><i id="prog"></i></div>
+  <span class="hint">← → 翻頁 · F 全螢幕</span>
+  <span class="count" id="count"></span>
+</div>
+
+<script>
+(() => {
+  const deck = document.getElementById("deck");
+  const slides = [...deck.children];
+  const N = slides.length;
+  let i = 0;
+
+  const go = (n, push = true) => {
+    i = Math.max(0, Math.min(N - 1, n));
+    deck.style.transform = `translateX(${-i * 100}vw)`;
+    document.getElementById("prog").style.width = `${((i + 1) / N) * 100}%`;
+    document.getElementById("count").textContent = `${i + 1} / ${N}`;
+    document.getElementById("prev").disabled = i === 0;
+    document.getElementById("next").disabled = i === N - 1;
+    slides.forEach((s, k) => s.inert = k !== i);
+    if (push) history.replaceState(null, "", `#${i + 1}`);
+    loadCounter(slides[i].getAttribute("aria-label") === "小彩蛋");
+  };
+  const fromHash = () => go((parseInt(location.hash.slice(1), 10) || 1) - 1, false);
+
+  const toggleFull = () => document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen?.();
+  const onKey = e => {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (["ArrowRight", "PageDown"].includes(e.key) || (e.key === " " && e.target === document.body)) { e.preventDefault(); go(i + 1); }
+    else if (["ArrowLeft", "PageUp"].includes(e.key)) { e.preventDefault(); go(i - 1); }
+    else if (e.key === "Home") go(0);
+    else if (e.key === "End") go(N - 1);
+    else if (e.key === "f" || e.key === "F") toggleFull();
+  };
+  document.addEventListener("keydown", onKey);
+
+  // 履歷內嵌頁：左右鍵與簡報筆的翻頁鍵仍然控制簡報，上下鍵與空白鍵捲動履歷
+  const frame = document.getElementById("resume");
+  frame.addEventListener("load", () => {
+    try {
+      frame.contentWindow.addEventListener("keydown", e => {
+        if (["ArrowRight", "ArrowLeft", "PageDown", "PageUp", "f", "F"].includes(e.key)) onKey(e);
+      });
+    } catch (_) {}
+  });
+
+  document.getElementById("prev").onclick = () => go(i - 1);
+  document.getElementById("next").onclick = () => go(i + 1);
+
+  // 手機左右滑動
+  let x0 = null, y0 = null;
+  deck.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
+  deck.addEventListener("touchend", e => {
+    if (x0 === null) return;
+    const dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(i + (dx < 0 ? 1 : -1));
+    x0 = null;
+  }, { passive: true });
+
+  // GoatCounter 總瀏覽數：停在彩蛋頁時每 10 秒更新，數字變動時往上跳
+  const numEl = document.getElementById("counterNum");
+  let shown = null, timer = null;
+  const animateTo = target => {
+    const from = shown ?? Math.max(0, target - 30), t0 = performance.now();
+    const step = t => {
+      const p = Math.min(1, (t - t0) / 900);
+      numEl.textContent = Math.round(from + (target - from) * (1 - Math.pow(1 - p, 3))).toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    shown = target;
+  };
+  const fetchCount = () => fetch("https://guanjipu.goatcounter.com/counter/TOTAL.json", { cache: "no-store" })
+    .then(r => r.ok ? r.json() : Promise.reject())
+    .then(d => { const n = parseInt(String(d.count).replace(/\D/g, ""), 10); if (n !== shown) animateTo(n); })
+    .catch(() => { if (shown === null) numEl.textContent = "—"; });
+  function loadCounter(on) {
+    clearInterval(timer);
+    if (!on) return;
+    fetchCount();
+    timer = setInterval(fetchCount, 10000);
+  }
+
+  window.addEventListener("hashchange", fromHash);
+  window.addEventListener("resize", () => go(i, false));
+  fromHash();
+})();
+</script>
+</body>
+</html>
