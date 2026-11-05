@@ -76,6 +76,12 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
 .grid3 .examples { gap: 8px; }
 
 /* Easter egg */
+.end-title { font-size: clamp(2rem, 4.6vw, 3.6rem); margin-bottom: clamp(20px, 4vh, 40px); }
+.dirs { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.dirs li { display: flex; align-items: center; gap: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(10px, 1.6vh, 16px) 20px; }
+.dirs span { flex: none; width: 2.2em; height: 2.2em; border-radius: 50%; background: var(--accent); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: clamp(.9rem, 1.4vw, 1.1rem); }
+.dirs div { font-size: clamp(1rem, 1.8vw, 1.35rem); color: var(--muted); }
+.dirs b { color: var(--text); margin-right: 12px; }
 .big { font-size: clamp(4rem, 14vw, 10rem); font-weight: 800; color: var(--accent); line-height: 1; margin: 8px 0 4px; font-variant-numeric: tabular-nums; }
 .btn { display: inline-flex; align-items: center; border: 1px solid var(--accent); background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 10px; text-decoration: none; font-size: clamp(1rem, 1.8vw, 1.25rem); font-weight: 600; }
 .btn:hover { filter: brightness(1.1); }
@@ -97,6 +103,27 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
   .qr { justify-self: start; }
   .hint { display: none; }
   .slide { justify-content: flex-start; }
+}
+.print-only { display: none; }
+
+/* PDF 備案：每張投影片一頁（16:9），履歷頁改用靜態截圖 */
+@page { size: 1440px 810px; margin: 0; }
+@media print {
+  html, body { height: auto; overflow: visible; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .deck { display: block; transform: none !important; transition: none; }
+  .slide { width: 1440px; height: 810px; overflow: hidden; break-after: page; padding-bottom: 48px; }
+  .bar { display: none; }
+  .frame iframe { display: none; }
+  .print-only { display: block; }
+  .frame img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .embed-head a { color: var(--muted); text-decoration: none; }
+  .cover { grid-template-columns: 1fr auto; }
+  .cols { grid-template-columns: 1fr 1fr; }
+  .grid3 { grid-template-columns: repeat(2, 1fr); }
+  .qr { justify-self: auto; box-shadow: none; }
+  .frame { box-shadow: none; }
+  .slide { justify-content: center; }
 }
 </style>
 </head>
@@ -124,7 +151,7 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
       <h2>我的履歷</h2>
       <a href="https://harryputaiwan.github.io/" target="_blank" rel="noopener">開新分頁 ↗</a>
     </div>
-    <div class="frame"><iframe id="resume" src="https://harryputaiwan.github.io/" title="蒲冠吉的履歷"></iframe></div>
+    <div class="frame"><iframe id="resume" src="https://harryputaiwan.github.io/" title="蒲冠吉的履歷"></iframe><img class="print-only" src="resume-shot.png" alt="履歷網站截圖"></div>
   </section>
 
   <!-- 3. 提案一 -->
@@ -209,6 +236,7 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
       <div class="card">
         <h3>😣 問題</h3>
         <ul>
+          <li>投資判斷需要綜合很多資訊判斷</li>
           <li>憑感覺交易，很難知道策略到底有沒有用</li>
           <li>沒算手續費、稅與滑價，回測容易過度樂觀</li>
         </ul>
@@ -249,12 +277,16 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
   </section>
 
   <!-- 7. 結尾 -->
-  <section class="slide" aria-label="一起組隊">
+  <section class="slide" aria-label="結尾">
     <div class="cover">
       <div>
-        <p class="eyebrow">謝謝聆聽</p>
-        <h1>一起組隊吧！</h1>
-        <p class="sub">對任何一個提案有興趣，下課來找我聊聊。</p>
+        <h1 class="end-title">歡迎大家一起討論專題主題！</h1>
+        <h3>🔭 有興趣的研究方向</h3>
+        <ol class="dirs">
+          <li><span>1</span><div><b>AI BI</b>企業內部的 AI 加速器</div></li>
+          <li><span>2</span><div><b>雲端服務</b>可商業化的 SaaS</div></li>
+          <li><span>3</span><div><b>台股交易</b>策略回測與交易系統</div></li>
+        </ol>
         <div class="actions">
           <a class="btn" href="https://www.linkedin.com/in/guan-ji-pu" target="_blank" rel="noopener">LinkedIn</a>
           <a class="btn line" href="mailto:pontussecret@gmail.com">pontussecret@gmail.com</a>
@@ -352,6 +384,12 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
     if (!on) return;
     fetchCount();
     timer = setInterval(fetchCount, 10000);
+  }
+
+  // 匯出 PDF 時（?pdf）直接帶入目前數字
+  if (new URLSearchParams(location.search).has("pdf")) {
+    fetch("https://guanjipu.goatcounter.com/counter/TOTAL.json").then(r => r.json())
+      .then(d => { numEl.textContent = d.count; });
   }
 
   window.addEventListener("hashchange", fromHash);
