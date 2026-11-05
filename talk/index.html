@@ -106,7 +106,48 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
 }
 .print-only { display: none; }
 
-/* PDF 備案：每張投影片一頁（16:9），履歷頁改用靜態截圖 */
+/* 履歷文字版投影片（PDF 用） */
+.rs { justify-content: flex-start; padding-top: 44px; }
+.rs-top { display: flex; justify-content: space-between; color: var(--muted); font-size: 15px; margin-bottom: 10px; }
+.rs-top b { color: var(--accent); }
+.rs h2 { font-size: 34px; margin-bottom: 14px; }
+.rs .meta + h2 { margin-bottom: 6px; }
+.rs h2 .at { color: var(--accent); font-weight: 600; }
+.rs .meta { color: var(--muted); font-size: 16px; margin: 0 0 4px; }
+.rs .summary { color: var(--muted); font-size: 18px; margin: 0 0 18px; }
+.rs .card { padding: 18px 22px; }
+.rs h3 { font-size: 16px; color: var(--accent); margin-bottom: 10px; }
+.rs-job { display: grid; grid-template-columns: 1fr 380px; gap: 22px; align-items: start; }
+.rs-job .intro { font-size: 15px; color: var(--muted); margin: 0 0 10px; }
+.rs-job dl { margin: 0; }
+.rs-job dt { font-weight: 700; font-size: 17px; }
+.rs-job dd { margin: 2px 0 12px; font-size: 16px; color: var(--muted); line-height: 1.6; }
+.rs-side { display: grid; gap: 16px; }
+.rs .results { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.rs .results li { background: color-mix(in srgb, var(--good) 12%, var(--surface)); color: var(--good); border-radius: 8px; padding: 8px 12px; font-weight: 600; font-size: 15px; }
+.rs .chips { gap: 6px; }
+.rs .chips span { font-size: 13.5px; padding: 3px 9px; font-weight: 500; }
+.rs-lead { font-size: 20px; color: var(--muted); margin: 0 0 22px; }
+.rs-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 14px; }
+.rs-kpis div { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 18px; }
+.rs-kpis b { display: block; font-size: 30px; color: var(--accent); line-height: 1.2; }
+.rs-kpis span { color: var(--muted); font-size: 15px; }
+.rs-hl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.rs-hl p { margin: 0; font-size: 15px; color: var(--muted); }
+.rs-skills { display: grid; gap: 12px; }
+.rs-skills .row { display: grid; grid-template-columns: 200px 1fr; gap: 16px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 14px 20px; }
+.rs-skills .row b { font-size: 17px; }
+.rs-pf { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.rs-pf .card small { color: var(--accent); font-weight: 600; font-size: 13px; }
+.rs-pf .card b { display: block; font-size: 16px; margin: 4px 0 6px; line-height: 1.4; }
+.rs-pf .card p { margin: 0; font-size: 14px; color: var(--muted); line-height: 1.6; }
+.rs-edu { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.rs-edu .item + .item { margin-top: 12px; }
+.rs-edu b { display: block; font-size: 16px; }
+.rs-edu span { display: block; font-size: 14px; color: var(--muted); }
+.rs-contact { margin-top: 18px; font-size: 17px; color: var(--muted); }
+
+/* PDF 備案：每張投影片一頁（16:9），履歷改為文字版投影片 */
 @page { size: 1440px 810px; margin: 0; }
 @media print {
   html, body { height: auto; overflow: visible; }
@@ -114,16 +155,15 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
   .deck { display: block; transform: none !important; transition: none; }
   .slide { width: 1440px; height: 810px; overflow: hidden; break-after: page; padding-bottom: 48px; }
   .bar { display: none; }
-  .frame iframe { display: none; }
-  .print-only { display: block; }
-  .frame img { width: 100%; height: 100%; object-fit: contain; object-position: top center; }
-  .embed-head a { color: var(--muted); text-decoration: none; }
+  .screen-only { display: none !important; }
+  .slide.print-only { display: flex; }
   .cover { grid-template-columns: 1fr auto; }
   .cols { grid-template-columns: 1fr 1fr; }
   .grid3 { grid-template-columns: repeat(2, 1fr); }
   .qr { justify-self: auto; box-shadow: none; }
   .frame { box-shadow: none; }
   .slide { justify-content: center; }
+  .slide.rs { justify-content: flex-start; }
 }
 </style>
 </head>
@@ -146,13 +186,16 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
   </section>
 
   <!-- 2. 履歷（內嵌） -->
-  <section class="slide embed" aria-label="履歷">
+  <section class="slide embed screen-only" aria-label="履歷">
     <div class="embed-head">
       <h2>我的履歷</h2>
       <a href="https://harryputaiwan.github.io/" target="_blank" rel="noopener">開新分頁 ↗</a>
     </div>
-    <div class="frame"><iframe id="resume" src="https://harryputaiwan.github.io/" title="蒲冠吉的履歷"></iframe><img class="print-only" src="resume-shot.png" alt="履歷網站截圖"></div>
+    <div class="frame"><iframe id="resume" src="https://harryputaiwan.github.io/" title="蒲冠吉的履歷"></iframe></div>
   </section>
+
+  <!-- 履歷文字版（只在列印／PDF 出現），由下方程式依 data.js 產生 -->
+  <div id="resumePages" hidden></div>
 
   <!-- 3. 提案一 -->
   <section class="slide" aria-label="提案一">
@@ -308,10 +351,12 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
   <span class="count" id="count"></span>
 </div>
 
+<script src="../data.js"></script>
 <script>
 (() => {
   const deck = document.getElementById("deck");
-  const slides = [...deck.children];
+  renderResumePages();
+  const slides = [...deck.children].filter(s => !s.classList.contains("print-only"));
   const N = slides.length;
   let i = 0;
 
@@ -338,6 +383,61 @@ h3 { font-size: clamp(1rem, 1.8vw, 1.3rem); margin: 0 0 12px; color: var(--muted
     else if (e.key === "f" || e.key === "F") toggleFull();
   };
   document.addEventListener("keydown", onKey);
+
+  // PDF 用的履歷文字版：直接讀 data.js，履歷改了這裡自動跟著變
+  function renderResumePages() {
+    const R = window.RESUME, anchor = document.getElementById("resumePages");
+    if (!R || !anchor) return;
+    const S = R.shared, L = R.zh, U = L.ui;
+    const esc = t => String(t).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const skill = k => S.skills[k].zh;
+    const chips = ks => `<div class="chips">${ks.map(k => `<span>${esc(skill(k))}</span>`).join("")}</div>`;
+    const duration = period => {
+      const [a, b] = period.split("–").map(x => x.trim().split(".").map(Number));
+      const m = (b[0] - a[0]) * 12 + (b[1] - a[1]) + 1;
+      return U.duration(Math.floor(m / 12), m % 12);
+    };
+    const kpi = k => (k.prefix || "") + k.value.toFixed(k.decimals || 0) + (k.suffix || "");
+
+    const pages = [
+      { name: "簡介", body: `
+        <h2>蒲冠吉 <span class="at">Guan-Ji Pu</span></h2>
+        <p class="meta">${esc(U.eyebrow)}</p>
+        <p class="rs-lead">${esc(L.lead)}</p>
+        <div class="rs-kpis">${L.kpis.map(k => `<div><b>${esc(kpi(k))}</b><span>${esc(k.label)}</span></div>`).join("")}</div>
+        <div class="rs-hl">${L.highlights.map(([h, p]) => `<div class="card"><h3>${esc(h)}</h3><p>${esc(p)}</p></div>`).join("")}</div>` },
+      { name: U.skillsTitle, body: `
+        <h2>${esc(U.skillsTitle)}</h2>
+        <div class="rs-skills">${S.skillGroups.map(g => `<div class="row"><b>${esc(g.zh)}</b>${chips(g.skills)}</div>`).join("")}</div>` },
+      ...L.jobs.map(j => ({ name: U.expTitle, body: `
+        <p class="meta">${esc(j.period)}　·　${esc(duration(j.period))}　·　${esc(j.industry)}</p>
+        <h2>${esc(j.title)} <span class="at">@ ${esc(j.company)}</span></h2>
+        <p class="summary">${esc(j.summary)}</p>
+        <div class="rs-job">
+          <div class="card"><p class="intro">${esc(j.intro)}</p><dl>${j.details.map(d => `<dt>${esc(d.h)}</dt><dd>${esc(d.p)}</dd>`).join("")}</dl></div>
+          <div class="rs-side">
+            <div class="card"><h3>成果</h3><ul class="results">${j.results.map(r => `<li>${esc(r)}</li>`).join("")}</ul></div>
+            <div class="card"><h3>使用技能</h3>${chips(S.jobSkills[j.id] || [])}</div>
+          </div>
+        </div>` })),
+      { name: U.pfTitle, body: `
+        <h2>${esc(U.pfTitle)}</h2>
+        <div class="rs-pf">${L.portfolio.map(x => `<div class="card"><small>${esc(x.ref)} · ${esc(U.pfCats[x.cat])}</small><b>${esc(x.title)}</b><p>${esc(x.desc)}</p></div>`).join("")}</div>` },
+      { name: U.eduTitle, body: `
+        <h2>${esc(U.eduTitle)}</h2>
+        <div class="rs-edu">
+          <div class="card"><h3>${esc(U.edu)}</h3>${L.education.map(e => `<div class="item"><b>${esc(e.school)}・${esc(e.degree)}</b><span>${esc(e.period)}</span>${e.note ? `<span>${esc(e.note)}</span>` : ""}</div>`).join("")}</div>
+          <div class="card"><h3>${esc(U.certs)}</h3>${S.certs.map(c => `<div class="item"><b>${esc(c.name)}</b><span>Scrum.org · ${esc(c.date)}</span></div>`).join("")}</div>
+          <div class="card"><h3>${esc(U.langs)}</h3>${L.languages.map(([a, b]) => `<div class="item"><b>${esc(a)}</b><span>${esc(b)}</span></div>`).join("")}</div>
+        </div>
+        <p class="rs-contact">${esc(U.contactText)}　LinkedIn：linkedin.com/in/guan-ji-pu</p>` }
+    ];
+    anchor.outerHTML = pages.map((pg, k) => `
+  <section class="slide rs print-only" aria-label="履歷 ${k + 1}/${pages.length}">
+    <div class="rs-top"><span><b>我的履歷</b>　${esc(pg.name)}</span><span>${k + 1} / ${pages.length}　·　harryputaiwan.github.io</span></div>
+    ${pg.body}
+  </section>`).join("");
+  }
 
   // 履歷內嵌頁：左右鍵與簡報筆的翻頁鍵仍然控制簡報，上下鍵與空白鍵捲動履歷
   const frame = document.getElementById("resume");
